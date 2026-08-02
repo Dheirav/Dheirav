@@ -29,10 +29,5 @@ Third-year CSE student at College of Engineering, Guindy (CEG), Anna University 
 | [LabEvaluationSystem](https://github.com/Dheirav/LabEvaluationSystem) | MERN | Lab evaluation + attendance platform for students/faculty |
 | [Attendance_Tracker_Mobile](https://github.com/Dheirav/Attendance_Tracker_Mobile) | Kotlin, Jetpack Compose | Native Android attendance tracker with MVVM architecture |
 
-### 🌱 Currently
-- Interning at Wells Fargo (CMIRP, EFT/HRI)
-- Marketing Head, Student Entrepreneurship Club @ CEG
-- Prepping for MS study-abroad applications (IELTS/GRE)
-
 ### 📫 Reach me
-<!-- Add LinkedIn / email / portfolio links here -->
+<p> <a href="[LINKEDIN_URL_HERE](https://www.linkedin.com/in/dheirav-prakash-63a107308/)"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" /></a> <a href="mailto:dheirav2005@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" /></a></p>
