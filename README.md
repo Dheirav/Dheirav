@@ -1,7 +1,7 @@
 <h1 align="center">Hi, I'm Dheirav 👋</h1>
 
 <p align="center">
-Third-year CSE student at College of Engineering, Guindy (CEG), Anna University · currently interning at Wells Fargo
+Fourth-Year CSE student at College of Engineering, Guindy (CEG), Anna University · Interned at Wells Fargo 
 </p>
 
 <p align="center">
