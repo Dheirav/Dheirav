@@ -18,7 +18,7 @@ Fourth-Year CSE student at College of Engineering, Guindy (CEG), Anna University
 
 ### 🔭 What I'm building
 - **[ChessBot](https://github.com/Dheirav/ChessBot)** — a C++ chess engine (alpha-beta search, custom evaluation) with an SFML GUI
-- **[BayMax](https://github.com/Dheirav/BayMax)** — a Whisper-powered audio/video transcriber with real-time and file-based modes
+- **[AudioTranscriber](https://github.com/Dheirav/AudioTranscriber)** — a Whisper-powered audio/video transcriber with real-time and file-based modes
 - A local, privacy-first AI assistant using Ollama, vector search, and persistent memory (in progress)
 
 ### 🧰 Recent projects
@@ -30,4 +30,4 @@ Fourth-Year CSE student at College of Engineering, Guindy (CEG), Anna University
 | [Attendance_Tracker_Mobile](https://github.com/Dheirav/Attendance_Tracker_Mobile) | Kotlin, Jetpack Compose | Native Android attendance tracker with MVVM architecture |
 
 ### 📫 Reach me
-<p> <a href="[LINKEDIN_URL_HERE](https://www.linkedin.com/in/dheirav-prakash-63a107308/)"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" /></a> <a href="mailto:dheirav2005@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" /></a></p>
+<p> <a href="https://www.linkedin.com/in/dheirav-prakash-63a107308/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" /></a> <a href="mailto:dheirav2005@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" /></a></p>
