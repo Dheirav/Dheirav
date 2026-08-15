@@ -23,6 +23,7 @@ Fourth-Year CSE student at College of Engineering, Guindy (CEG), Anna University
 - **[UkuleleTabsMaker](https://github.com/Dheirav/UkuleleTabsMaker)** — turns a YouTube ukulele tutorial into a printable tab sheet by *reading the notation off the screen*. Computer vision, not audio transcription: it recovers each note's fret, string and timing from what the player itself shows.
 - **[DeepFakeDetector](https://github.com/Dheirav/DeepFakeDetector)** — three-way classification of images as real, AI-generated, or AI-edited. Dataset built across 20 sources, with Grad-CAM explainability and every training run's metrics committed alongside the model cards.
 - **[NashForge](https://github.com/Dheirav/NashForge)** — a Texas Hold'em poker AI trained by evolutionary self-play, on top of a full poker engine with a Numba-accelerated training loop.
+- **HelperBoi** — a local, privacy-first AI assistant: swappable local LLMs with automatic model routing, persistent memory, RAG over an Obsidian vault, and a skill builder for extending it. *(in progress, not yet public)*
 
 ### 🧰 Selected projects
 
