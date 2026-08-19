@@ -2,14 +2,7 @@
 
 <img alt="Codex index — 001 ChessBot (Search/Engine, C++, since 2025); 002 UkuleleTabsMaker (Vision/Music, Python, since 2026); 003 NashForge (Solver/Research, Python, since 2026); 004 DeepFakeDetector (Forensics/Vision, Python, since 2026); 005 Luna (Offline/Mobile, Kotlin, since 2026); 006 NewsLetterScrapper (Pipeline/LLM, Python, since 2026)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index.svg">
 
-<sub>
-<a href="https://github.com/Dheirav/ChessBot">ChessBot</a> ·
-<a href="https://github.com/Dheirav/UkuleleTabsMaker">UkuleleTabsMaker</a> ·
-<a href="https://github.com/Dheirav/NashForge">NashForge</a> ·
-<a href="https://github.com/Dheirav/DeepFakeDetector">DeepFakeDetector</a> ·
-<a href="https://github.com/Dheirav/Luna">Luna</a> ·
-<a href="https://github.com/Dheirav/NewsLetterScrapper">NewsLetterScrapper</a>
-</sub>
+<img alt="Archive — HelperBoi, photo-dedupe-review, AudioTranscriber, LabEvaluationSystem, Attendance_Tracker_Mobile, SaleSnipe, Carbon_Gauge" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
 
 <details>
 <summary><b>Full entries</b></summary>
@@ -29,9 +22,15 @@
 
 </details>
 
-<img alt="Archive — HelperBoi, photo-dedupe-review, AudioTranscriber, LabEvaluationSystem, Attendance_Tracker_Mobile, SaleSnipe, Carbon_Gauge" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
+---
 
 <sub>
+<a href="https://github.com/Dheirav/ChessBot">ChessBot</a> ·
+<a href="https://github.com/Dheirav/UkuleleTabsMaker">UkuleleTabsMaker</a> ·
+<a href="https://github.com/Dheirav/NashForge">NashForge</a> ·
+<a href="https://github.com/Dheirav/DeepFakeDetector">DeepFakeDetector</a> ·
+<a href="https://github.com/Dheirav/Luna">Luna</a> ·
+<a href="https://github.com/Dheirav/NewsLetterScrapper">NewsLetterScrapper</a> ·
 <a href="https://github.com/Dheirav/HelperBoi">HelperBoi</a> ·
 <a href="https://github.com/Dheirav/photo-dedupe-review">photo-dedupe-review</a> ·
 <a href="https://github.com/Dheirav/AudioTranscriber">AudioTranscriber</a> ·
