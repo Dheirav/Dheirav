@@ -1,43 +1,79 @@
-<h1 align="center">Hi, I'm Dheirav 👋</h1>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="codex/trainer-dark.svg">
+  <img alt="ID card — Dheirav Prakash, Chennai India, 16 repos, 3 verified results" src="codex/trainer-light.svg">
+</picture>
 
-<p align="center">
-Fourth-Year CSE student at College of Engineering, Guindy (CEG), Anna University · Interned at Wells Fargo 
-</p>
+Fourth-year CSE at College of Engineering, Guindy, Anna University.
+Most of what I build runs offline. If a project claims a number, whatever produced it is in the repo — a ✓ in the title bar means the number is checkable by someone who isn't me.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" />
-  <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" />
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white" />
-  <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat&logo=opencv&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white" />
-</p>
+<a href="https://github.com/Dheirav/ChessBot"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="codex/entry-001-dark.svg">
+  <img alt="No.001 ChessBot — Search/Engine, C++, since 2025. A UCI chess engine written from scratch. Lichess 2100+ rapid, verified." src="codex/entry-001-light.svg">
+</picture></a>
+
+<a href="https://github.com/Dheirav/UkuleleTabsMaker"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="codex/entry-002-dark.svg">
+  <img alt="No.002 UkuleleTabs — Vision/Music, Python, since 2026. Reads ukulele tabs off a YouTube video. 99.7% recall, 100% precision on 340 notes." src="codex/entry-002-light.svg">
+</picture></a>
+
+<a href="https://github.com/Dheirav/NashForge"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="codex/entry-003-dark.svg">
+  <img alt="No.003 NashForge — Solver/Research, Python, since 2026. A CFR solver for heads-up no-limit Hold'em. Reproduces Kuhn -1/18, exact Leduc exploitability." src="codex/entry-003-light.svg">
+</picture></a>
+
+<a href="https://github.com/Dheirav/DeepFakeDetector"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="codex/entry-004-dark.svg">
+  <img alt="No.004 DeepfakeDex — Vision/Forensics, Python, since 2026. Sorts images into real, AI-generated or AI-edited. 89.5% on 77,865 images across 20 sources." src="codex/entry-004-light.svg">
+</picture></a>
+
+<a href="https://github.com/Dheirav/Luna"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="codex/entry-005-dark.svg">
+  <img alt="No.005 Luna — Mobile/Offline, Kotlin, since 2026. An Android cycle tracker with no INTERNET permission. Offline, no account, no telemetry." src="codex/entry-005-light.svg">
+</picture></a>
+
+<a href="https://github.com/Dheirav/NewsLetterScrapper"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="codex/entry-006-dark.svg">
+  <img alt="No.006 NewsForge — Pipeline/Local-LLM, Python, since 2026. Clusters 38 RSS feeds into stories with a local LLM. Self-hosted, no external AI APIs." src="codex/entry-006-light.svg">
+</picture></a>
+
+<a href="https://github.com/Dheirav?tab=repositories"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="codex/archive-dark.svg">
+  <img alt="Archive — HelperBoi, PhotoDedupe, AudioTrans, LabEval, Attendance, SaleSnipe, CarbonGauge" src="codex/archive-light.svg">
+</picture></a>
+
+<sub>
+In the box:
+<a href="https://github.com/Dheirav/HelperBoi">HelperBoi</a> ·
+<a href="https://github.com/Dheirav/photo-dedupe-review">photo-dedupe-review</a> ·
+<a href="https://github.com/Dheirav/AudioTranscriber">AudioTranscriber</a> ·
+<a href="https://github.com/Dheirav/LabEvaluationSystem">LabEvaluationSystem</a> ·
+<a href="https://github.com/Dheirav/Attendance_Tracker_Mobile">Attendance_Tracker_Mobile</a> ·
+<a href="https://github.com/Dheirav/SaleSnipe">SaleSnipe</a> ·
+<a href="https://github.com/Dheirav/Carbon_Gauge">Carbon_Gauge</a>
+</sub>
 
 ---
 
-### 🔭 What I'm building
+Negative results stay in the repo, and so do the retractions.
+[`CODEBASE_AUDIT.md`](https://github.com/Dheirav/NashForge/blob/main/CODEBASE_AUDIT.md) is where I
+established my own published results were wrong and withdrew them.
 
-- **[UkuleleTabsMaker](https://github.com/Dheirav/UkuleleTabsMaker)** — turns a YouTube ukulele tutorial into a printable tab sheet by *reading the notation off the screen*. Computer vision, not audio transcription: it recovers each note's fret, string and timing from what the player itself shows.
-- **[DeepFakeDetector](https://github.com/Dheirav/DeepFakeDetector)** — three-way classification of images as real, AI-generated, or AI-edited. Dataset built across 20 sources, with Grad-CAM explainability and every training run's metrics committed alongside the model cards.
-- **[NashForge](https://github.com/Dheirav/NashForge)** — a Texas Hold'em poker AI trained by evolutionary self-play, on top of a full poker engine with a Numba-accelerated training loop.
-- **[HelperBoi](https://github.com/Dheirav/HelperBoi)** — a local, privacy-first AI assistant: swappable local LLMs with automatic model routing, persistent memory, RAG over an Obsidian vault, and a skill builder for extending it. *(in progress)*
+[LinkedIn](https://www.linkedin.com/in/dheirav-prakash-63a107308/) · [dheirav2005@gmail.com](mailto:dheirav2005@gmail.com)
 
-### 🧰 Selected projects
+<details>
+<summary>Plain text (if images don't load)</summary>
 
-| Project | Stack | What it does |
+**Dheirav Prakash** — Chennai, India. Fourth-year CSE at CEG, Anna University.
+
+| Project | Stack | What it is |
 |---|---|---|
-| [ChessBot](https://github.com/Dheirav/ChessBot) | C++, SFML | A UCI chess engine written from scratch — bitboard move generation, alpha-beta search with a transposition table and a hand-tuned evaluation, plus a board GUI and a Lichess bot bridge |
-| [NewsLetterScrapper](https://github.com/Dheirav/NewsLetterScrapper) | Python, FastAPI, Ollama | A self-hosted daily briefing — ingests 38 RSS feeds, clusters articles into stories, and writes structured analysis with a local LLM. No external AI APIs |
-| [Luna](https://github.com/Dheirav/Luna) | Kotlin, Jetpack Compose | An offline-only Android cycle tracker with no account and no network permission — predicts a window rather than inventing a single date, with encrypted backups and a biometric lock |
-| [photo-dedupe-review](https://github.com/Dheirav/photo-dedupe-review) | Python | Finds duplicate and visually similar photos and videos and groups them for review — it never auto-deletes and never picks the keeper for you |
-| [AudioTranscriber](https://github.com/Dheirav/AudioTranscriber) | Python, Whisper | Transcribes audio and video, with both real-time microphone capture and batch file processing |
-| [LabEvaluationSystem](https://github.com/Dheirav/LabEvaluationSystem) | MERN | A platform for running university lab evaluations and attendance for students and faculty |
-| [Attendance_Tracker_Mobile](https://github.com/Dheirav/Attendance_Tracker_Mobile) | Kotlin, Jetpack Compose | A native Android attendance tracker — swipe logging, safe-skip calculator and forecasting, on MVVM + Room + Hilt |
-| [SaleSnipe](https://github.com/Dheirav/SaleSnipe) | MERN | A cross-site price tracker that records price history and alerts you when something you're watching drops |
-| [Carbon_Gauge](https://github.com/Dheirav/Carbon_Gauge) | MERN | A dashboard for tracking and analyzing industrial carbon emissions, with compliance checks against reporting thresholds |
+| [ChessBot](https://github.com/Dheirav/ChessBot) | C++ | A UCI chess engine written from scratch. Plays rated on Lichess at 2100+ rapid. |
+| [UkuleleTabsMaker](https://github.com/Dheirav/UkuleleTabsMaker) | Python, OpenCV | Reads ukulele tabs off a YouTube video. 99.7% recall, 100% precision on 340 hand-checked notes. |
+| [NashForge](https://github.com/Dheirav/NashForge) | Python, Numba | A CFR solver for heads-up no-limit Hold'em. Reproduces Kuhn's −1/18, exact Leduc exploitability. |
+| [DeepFakeDetector](https://github.com/Dheirav/DeepFakeDetector) | PyTorch | Real / AI-generated / AI-edited classification. 89.5% on 77,865 images across 20 sources. |
+| [Luna](https://github.com/Dheirav/Luna) | Kotlin | An Android cycle tracker with no `INTERNET` permission. |
+| [NewsLetterScrapper](https://github.com/Dheirav/NewsLetterScrapper) | Python, Ollama | 38 RSS feeds clustered into stories by a local LLM. Nothing leaves the machine. |
 
-### 📫 Reach me
-<p> <a href="https://www.linkedin.com/in/dheirav-prakash-63a107308/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" /></a> <a href="mailto:dheirav2005@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" /></a></p>
+Also: [HelperBoi](https://github.com/Dheirav/HelperBoi), [photo-dedupe-review](https://github.com/Dheirav/photo-dedupe-review), [AudioTranscriber](https://github.com/Dheirav/AudioTranscriber), [LabEvaluationSystem](https://github.com/Dheirav/LabEvaluationSystem), [Attendance_Tracker_Mobile](https://github.com/Dheirav/Attendance_Tracker_Mobile), [SaleSnipe](https://github.com/Dheirav/SaleSnipe), [Carbon_Gauge](https://github.com/Dheirav/Carbon_Gauge)
+
+</details>
