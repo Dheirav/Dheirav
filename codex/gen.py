@@ -394,11 +394,13 @@ BOX = [("HelperBoi",8),("Dedupe",7),("Audio",9),
 MAXL = max(len(wrap(e[3], (W - 16 - 39 - 14) // 6)) for e in PARTY)
 here = os.path.dirname(os.path.abspath(__file__))
 set_avatar(os.path.join(here, "avatar-src.png"))
-for th in ("light", "dark"):
-    open(os.path.join(here, f"trainer-{th}.svg"), "w").write(trainer(th))
-    open(os.path.join(here, f"archive-{th}.svg"), "w").write(archive(BOX, th))
-    open(os.path.join(here, f"index-{th}.svg"), "w").write(listscreen(th))
-    for e in PARTY:
-        n = e[0].split('.')[1]
-        open(os.path.join(here, f"entry-{n}-{th}.svg"), "w").write(entry(*e, th, minlines=MAXL))
+# Single-theme output. TH still carries the light palette, so flipping this
+# back to a themed build is a one-line change.
+th = "dark"
+open(os.path.join(here, "trainer.svg"), "w").write(trainer(th))
+open(os.path.join(here, "archive.svg"), "w").write(archive(BOX, th))
+open(os.path.join(here, "index.svg"), "w").write(listscreen(th))
+for e in PARTY:
+    n = e[0].split('.')[1]
+    open(os.path.join(here, f"entry-{n}.svg"), "w").write(entry(*e, th, minlines=MAXL))
 print("generated")

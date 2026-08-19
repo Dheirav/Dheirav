@@ -41,5 +41,4 @@ def build(theme, out, hold=1300, blink=380):
                 loop=0, optimize=True, disposal=1)
     return out, os.path.getsize(out), frames[0].size, sum(durs)
 
-for th in ("light", "dark"):
-    print(build(th, os.path.join(os.path.dirname(os.path.abspath(__file__)), f"codex-{th}.gif")))
+print(build("dark", os.path.join(os.path.dirname(os.path.abspath(__file__)), "codex.gif")))
