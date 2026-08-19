@@ -2,10 +2,6 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer-dark.svg">
   <img alt="ID card — Dheirav Prakash, Chennai India, 16 repos, 3 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer-light.svg">
 </picture>
-
-Fourth-year CSE at College of Engineering, Guindy, Anna University.
-Most of what I build runs offline. If a project claims a number, whatever produced it is in the repo — a ✓ means the number is checkable by someone who isn't me.
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index-dark.svg">
   <img alt="Codex index — 001 ChessBot (search, engine, verified); 002 UkuleleTabs (vision, music, verified); 003 NashForge (solver, research, verified); 004 DeepfakeDex (vision, forensics); 005 Luna (mobile, offline); 006 NewsForge (pipeline, LLM)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index-light.svg">
