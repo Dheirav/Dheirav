@@ -126,7 +126,7 @@ def wrap(text, n):
 TYPES = {
  'SEARCH':'#4F7BD6','ENGINE':'#8E96AD','VISION':'#D4497E','MUSIC':'#C9789F',
  'SOLVER':'#6F4FC0','RESEARCH':'#5A6B8C','FORENSICS':'#6E5A46','MOBILE':'#7A5F9E',
- 'OFFLINE':'#3F8F63','PIPELINE':'#C9A227','LOCAL LLM':'#D1793C','TOOLS':'#7E8570',
+ 'OFFLINE':'#3F8F63','PIPELINE':'#C9A227','LLM':'#D1793C','TOOLS':'#7E8570',
 }
 DARKTEXT = set()
 
@@ -285,7 +285,7 @@ def trainer(theme):
 # ---------------- PC storage box ----------------
 def archive(items, theme):
     t = TH[theme]
-    COLS, TW, TH_, GAP = 3, 80, 44, 6
+    COLS, TW, TH_, GAP = 4, 60, 34, 5
     rows = (len(items) + COLS - 1) // COLS
     bx, by, bw = 8, 8, W - 16
     gtop = by + 11 + 6
@@ -303,8 +303,61 @@ def archive(items, theme):
         x = gx0 + c*(TW+GAP); y = gtop + r*(TH_+GAP)
         A(f'<rect x="{x*U}" y="{y*U}" width="{TW*U}" height="{TH_*U}" rx="{2*U}" '
           f'fill="{t["tile"]}" stroke="{t["edge"]}" stroke-width="{U}"/>')
-        A(draw_sprite(sp, x + (TW-26)//2, y + 2, U))
-        A(f'<path d="{path(px(label, x + (TW - len(label)*6)//2, y + TH_ - 12), U)}" fill="{t["ink"]}"/>')
+        A(small_sprite(sp, x + (TW-13)//2, y + 3, U))
+        A(f'<path d="{path(px(label, x + (TW - (len(label)*6-1))//2, y + TH_ - 11), U)}" fill="{t["ink"]}"/>')
+    A('</svg>')
+    return "".join(o)
+
+
+def half(g):
+    """26x26 -> 13x13, majority of each 2x2 block"""
+    out = [['.']*13 for _ in range(13)]
+    for y in range(13):
+        for x in range(13):
+            cells = [g[2*y+dy][2*x+dx] for dy in (0,1) for dx in (0,1)]
+            solid = [c for c in cells if c != '.']
+            if solid:
+                out[y][x] = max(set(solid), key=solid.count)
+    return out
+
+def small_sprite(sp, ox, oy, u):
+    g, pal = (AVATAR if sp == 'me' else SPRITES[sp]())
+    g = half(g)
+    grp = {}
+    for y, row in enumerate(g):
+        for x, c in enumerate(row):
+            if c != '.': grp.setdefault(c, []).append((ox+x, oy+y))
+    order = [k for k in grp if k != 'K'] + (['K'] if 'K' in grp else [])
+    return "".join(f'<path d="{path(grp[c], u)}" fill="{pal[c]}"/>' for c in order)
+
+def listscreen(theme):
+    t = TH[theme]
+    bx, by, bw = 8, 8, W - 16
+    RH = 16
+    top = by + 11 + 4
+    sh = 14 + len(PARTY)*RH + 8
+    H = 5 + sh + 5
+    o = []; A = o.append
+    names = ", ".join(e[1] for e in PARTY)
+    A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W*U}" height="{H*U}" '
+      f'viewBox="0 0 {W*U} {H*U}" role="img" aria-label="Codex index: {names}">')
+    frame(H, t, o); screen(5, 5, W-10, sh, t, o)
+    titlebar(bx, by, bw, "CODEX", t, o, right="6 entries")
+    for i, e in enumerate(PARTY):
+        no, name, tags, _d, _f, sp, lang, _s, ver = e
+        y = top + i*RH
+        if i % 2 == 0:
+            A(f'<rect x="{bx*U}" y="{y*U}" width="{bw*U}" height="{RH*U}" fill="{t["tile"]}"/>')
+        A(f'<path d="{path(px(no, bx+3, y+4), U)}" fill="{t["dim"]}"/>')
+        A(small_sprite(sp, bx+42, y+1, U))
+        A(f'<path d="{path(px(name, bx+58, y+4), U)}" fill="{t["ink"]}"/>')
+        cx = bx + 128
+        for tg in tags:
+            cw = len(tg)*6 + 5
+            A(f'<rect x="{cx*U}" y="{(y+3)*U}" width="{cw*U}" height="{10*U}" rx="{2*U}" fill="{TYPES[tg]}"/>')
+            A(f'<path d="{path(px(tg, cx+3, y+4), U)}" fill="#FFFFFF"/>')
+            cx += cw + 3
+        if ver: A(seal(bx + bw - 12, y + 3, U))
     A('</svg>')
     return "".join(o)
 
@@ -324,12 +377,12 @@ PARTY = [
  ("No.005","Luna",["MOBILE","OFFLINE"],
   "An Android cycle tracker with no INTERNET permission, and there never will be one. Predicts a window instead of inventing a single date.",
   "OFFLINE - NO ACCOUNT - NO TELEMETRY", 5, "Kotlin", "2026", False),
- ("No.006","NewsForge",["PIPELINE","LOCAL LLM"],
+ ("No.006","NewsForge",["PIPELINE","LLM"],
   "Clusters 38 RSS feeds into stories and writes the analysis with a local LLM. Nothing ever leaves the machine.",
   "SELF-HOSTED - NO EXTERNAL AI APIS", 6, "Python", "2026", False),
 ]
-BOX = [("HelperBoi",8),("PhotoDedupe",7),("AudioTrans",9),
-       ("LabEval",10),("Attendance",11),("SaleSnipe",12),("CarbonGauge",13)]
+BOX = [("HelperBoi",8),("Dedupe",7),("Audio",9),
+       ("LabEval",10),("Attend",11),("SaleSnipe",12),("Carbon",13)]
 
 MAXL = max(len(wrap(e[3], (W - 16 - 39 - 14) // 6)) for e in PARTY)
 here = os.path.dirname(os.path.abspath(__file__))
@@ -337,6 +390,7 @@ set_avatar(os.path.join(here, "avatar-src.png"))
 for th in ("light", "dark"):
     open(os.path.join(here, f"trainer-{th}.svg"), "w").write(trainer(th))
     open(os.path.join(here, f"archive-{th}.svg"), "w").write(archive(BOX, th))
+    open(os.path.join(here, f"index-{th}.svg"), "w").write(listscreen(th))
     for e in PARTY:
         n = e[0].split('.')[1]
         open(os.path.join(here, f"entry-{n}-{th}.svg"), "w").write(entry(*e, th, minlines=MAXL))
