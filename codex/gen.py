@@ -133,10 +133,10 @@ DARKTEXT = set()
 TH = {
  'light': dict(shell='#B3261E', shell_hi='#E2564C', shell_lo='#7E1A14',
                screen='#F4F6E8', line='#2B3A67', ink='#16233F', dim='#5C6B8A',
-               bar='#2B3A67', bartx='#F4F6E8', box='#FFFFFF', edge='#98A6C8', well='#E4EAF6', tile='#EDF1F9'),
+               bar='#2B3A67', bartx='#F4F6E8', box='#FFFFFF', edge='#98A6C8', well='#E4EAF6', tile='#EDF1F9', scan='#E9ECDC', bevel='#C9CFB8', screw='#8E1F18'),
  'dark':  dict(shell='#8E1E18', shell_hi='#B3352C', shell_lo='#4E0F0B',
                screen='#0F141C', line='#5C74B8', ink='#DCE6F5', dim='#8A9AC0',
-               bar='#22304F', bartx='#DCE6F5', box='#161D28', edge='#3A4A72', well='#1E2938', tile='#19212E'),
+               bar='#22304F', bartx='#DCE6F5', box='#161D28', edge='#3A4A72', well='#1E2938', tile='#19212E', scan='#0C1017', bevel='#050810', screw='#3C0B08'),
 }
 
 U = 3  # pixel scale
@@ -193,10 +193,18 @@ def screen(x, y, w, h, t, o):
     A = o.append
     A(f'<rect x="{x*U}" y="{y*U}" width="{w*U}" height="{h*U}" fill="{t["line"]}"/>')
     A(f'<rect x="{(x+1)*U}" y="{(y+1)*U}" width="{(w-2)*U}" height="{(h-2)*U}" fill="{t["screen"]}"/>')
+    # LCD scanlines
+    scan = [(sx, sy) for sy in range(y+2, y+h-1, 3) for sx in range(x+1, x+w-1)]
+    A(f'<path d="{path(scan, U)}" fill="{t["scan"]}"/>')
+    # inner bevel, top and left
+    bev = ([(sx, y+1) for sx in range(x+1, x+w-1)] +
+           [(x+1, sy) for sy in range(y+1, y+h-1)])
+    A(f'<path d="{path(bev, U)}" fill="{t["bevel"]}"/>')
 
 def titlebar(x, y, w, label, t, o, right=None, verified=False):
     A = o.append
     A(f'<rect x="{x*U}" y="{y*U}" width="{w*U}" height="{11*U}" fill="{t["bar"]}"/>')
+    A(f'<path d="{path([(i, y) for i in range(x, x+w)], U)}" fill="{t["edge"]}"/>')
     A(f'<path d="{path(px(label, x+3, y+2), U)}" fill="{t["bartx"]}"/>')
     if verified: A(seal(x + w - 14, y + 1, U))
     elif right: A(f'<path d="{path(px(right, x+w-3-len(right)*6, y+2), U)}" fill="{t["bartx"]}"/>')
@@ -348,16 +356,15 @@ def listscreen(theme):
         y = top + i*RH
         if i % 2 == 0:
             A(f'<rect x="{bx*U}" y="{y*U}" width="{bw*U}" height="{RH*U}" fill="{t["tile"]}"/>')
-        A(f'<path d="{path(px(no, bx+3, y+4), U)}" fill="{t["dim"]}"/>')
-        A(small_sprite(sp, bx+42, y+1, U))
-        A(f'<path d="{path(px(name, bx+58, y+4), U)}" fill="{t["ink"]}"/>')
-        cx = bx + 128
-        for tg in tags:
-            cw = len(tg)*6 + 5
-            A(f'<rect x="{cx*U}" y="{(y+3)*U}" width="{cw*U}" height="{10*U}" rx="{2*U}" fill="{TYPES[tg]}"/>')
-            A(f'<path d="{path(px(tg, cx+3, y+4), U)}" fill="#FFFFFF"/>')
-            cx += cw + 3
-        if ver: A(seal(bx + bw - 12, y + 3, U))
+        A(f'<path d="{path(px(no.split(".")[1], bx+4, y+4), U)}" fill="{t["dim"]}"/>')
+        A(small_sprite(sp, bx+26, y+1, U))
+        A(f'<path d="{path(px(name, bx+44, y+4), U)}" fill="{t["ink"]}"/>')
+        tg = tags[0]
+        cw = len(tg)*6 + 5
+        cx = bx + bw - 19 - cw
+        A(f'<rect x="{cx*U}" y="{(y+3)*U}" width="{cw*U}" height="{10*U}" rx="{2*U}" fill="{TYPES[tg]}"/>')
+        A(f'<path d="{path(px(tg, cx+3, y+4), U)}" fill="#FFFFFF"/>')
+        if ver: A(seal(bx + bw - 13, y + 3, U))
     A('</svg>')
     return "".join(o)
 
@@ -365,19 +372,19 @@ PARTY = [
  ("No.001","ChessBot",["SEARCH","ENGINE"],
   "A UCI chess engine written from scratch. Bitboards, alpha-beta, transposition table, null-move pruning. Every heuristic won an SPRT match before it shipped.",
   "LICHESS 2100+ RAPID - VERIFIED", 1, "C++", "2025", True),
- ("No.002","UkuleleTabs",["VISION","MUSIC"],
+ ("No.002","UkuleleTabsMaker",["VISION","MUSIC"],
   "Reads ukulele tabs off a YouTube video and prints a playable sheet. Computer vision over the notation on screen, not the audio.",
   "99.7% RECALL / 100% PRECISION, 340 NOTES", 2, "Python", "2026", True),
  ("No.003","NashForge",["SOLVER","RESEARCH"],
   "A CFR solver for heads-up no-limit Hold'em. An earlier training pipeline here published results. I audited it, found the fitness scored the wrong player, and withdrew them.",
   "REPRODUCES KUHN -1/18 - EXACT LEDUC", 3, "Python", "2026", True),
- ("No.004","DeepfakeDex",["VISION","FORENSICS"],
+ ("No.004","DeepFakeDetector",["FORENSICS","VISION"],
   "Sorts images into real, AI-generated or AI-edited. The forensic parts I expected to carry it bought under 0.2% over a plain baseline. All 26 runs are committed.",
   "89.5% ON 77,865 IMAGES / 20 SOURCES", 4, "Python", "2026", False),
- ("No.005","Luna",["MOBILE","OFFLINE"],
+ ("No.005","Luna",["OFFLINE","MOBILE"],
   "An Android cycle tracker with no INTERNET permission, and there never will be one. Predicts a window instead of inventing a single date.",
   "OFFLINE - NO ACCOUNT - NO TELEMETRY", 5, "Kotlin", "2026", False),
- ("No.006","NewsForge",["PIPELINE","LLM"],
+ ("No.006","NewsLetterScrapper",["PIPELINE","LLM"],
   "Clusters 38 RSS feeds into stories and writes the analysis with a local LLM. Nothing ever leaves the machine.",
   "SELF-HOSTED - NO EXTERNAL AI APIS", 6, "Python", "2026", False),
 ]

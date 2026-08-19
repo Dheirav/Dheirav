@@ -4,7 +4,7 @@
 </picture>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index-dark.svg">
-  <img alt="Codex index — 001 ChessBot (search, engine, verified); 002 UkuleleTabs (vision, music, verified); 003 NashForge (solver, research, verified); 004 DeepfakeDex (vision, forensics); 005 Luna (mobile, offline); 006 NewsForge (pipeline, LLM)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index-light.svg">
+  <img alt="Codex index — 001 ChessBot (Search/Engine, C++, since 2025); 002 UkuleleTabsMaker (Vision/Music, Python, since 2026); 003 NashForge (Solver/Research, Python, since 2026); 004 DeepFakeDetector (Forensics/Vision, Python, since 2026); 005 Luna (Offline/Mobile, Kotlin, since 2026); 006 NewsLetterScrapper (Pipeline/LLM, Python, since 2026)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index-light.svg">
 </picture>
 
 <sub>
@@ -27,7 +27,7 @@
 
 <a href="https://github.com/Dheirav/UkuleleTabsMaker"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-002-dark.svg">
-  <img alt="No.002 UkuleleTabs — Vision/Music, Python, since 2026. Reads ukulele tabs off a YouTube video. 99.7% recall, 100% precision on 340 notes." src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-002-light.svg">
+  <img alt="No.002 UkuleleTabsMaker — Vision/Music, Python, since 2026. Reads ukulele tabs off a YouTube video. 99.7% recall, 100% precision on 340 notes." src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-002-light.svg">
 </picture></a>
 
 <a href="https://github.com/Dheirav/NashForge"><picture>
@@ -37,17 +37,17 @@
 
 <a href="https://github.com/Dheirav/DeepFakeDetector"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-004-dark.svg">
-  <img alt="No.004 DeepfakeDex — Vision/Forensics, Python, since 2026. Sorts images into real, AI-generated or AI-edited. 89.5% on 77,865 images across 20 sources." src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-004-light.svg">
+  <img alt="No.004 DeepFakeDetector — Forensics/Vision, Python, since 2026. Sorts images into real, AI-generated or AI-edited. 89.5% on 77,865 images across 20 sources." src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-004-light.svg">
 </picture></a>
 
 <a href="https://github.com/Dheirav/Luna"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-005-dark.svg">
-  <img alt="No.005 Luna — Mobile/Offline, Kotlin, since 2026. An Android cycle tracker with no INTERNET permission." src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-005-light.svg">
+  <img alt="No.005 Luna — Offline/Mobile, Kotlin, since 2026. An Android cycle tracker with no INTERNET permission." src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-005-light.svg">
 </picture></a>
 
 <a href="https://github.com/Dheirav/NewsLetterScrapper"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-006-dark.svg">
-  <img alt="No.006 NewsForge — Pipeline/LLM, Python, since 2026. Clusters 38 RSS feeds into stories with a local LLM. Self-hosted, no external AI APIs." src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-006-light.svg">
+  <img alt="No.006 NewsLetterScrapper — Pipeline/LLM, Python, since 2026. Clusters 38 RSS feeds into stories with a local LLM. Self-hosted, no external AI APIs." src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-006-light.svg">
 </picture></a>
 
 </details>
