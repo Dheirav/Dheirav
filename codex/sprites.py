@@ -178,6 +178,29 @@ def avatar_sprite(path_png):
     return g, pal
 
 
+def scales():
+    """who-pays-for-fairness: a balance, tipped. The question the project asks is
+    who absorbs the cost of a fairness constraint, so the beam is not level."""
+    g = blank()
+    box(g, 12, 4, 13, 20, 'S')          # column
+    box(g, 7, 20, 18, 22, 'B')          # base
+    box(g, 9, 19, 16, 20, 'B')          # plinth
+    disc(g, 12, 4, 1, 'G')              # finial
+    for i, x in enumerate(range(4, 22)):  # beam, tilted one step
+        box(g, x, 7 + (i // 9), x, 7 + (i // 9), 'G')
+    box(g, 4, 8, 4, 11, 'C')            # left hanger
+    box(g, 21, 9, 21, 12, 'C')          # right hanger
+    box(g, 1, 11, 7, 12, 'L')           # left pan, riding high
+    box(g, 2, 13, 6, 13, 'L')
+    box(g, 18, 12, 24, 13, 'R')         # right pan, carrying the cost
+    box(g, 19, 14, 23, 14, 'R')
+    outline(g)
+    return g, {'S': '#8A93A8', 'B': '#5C6478', 'G': '#E3C766',
+               'C': '#B9C0D0', 'L': '#7FB3E0', 'R': '#E0906F', 'K': '#20242E'}
+
+SPRITES[14] = scales
+
+
 # ---------- generic fallback ----------
 def generic():
     """Used for a repo that has no sprite of its own yet. A sealed carton with a

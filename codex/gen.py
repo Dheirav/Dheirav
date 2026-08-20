@@ -326,7 +326,10 @@ def half(g):
             cells = [g[2*y+dy][2*x+dx] for dy in (0,1) for dx in (0,1)]
             solid = [c for c in cells if c != '.']
             if solid:
-                out[y][x] = max(set(solid), key=solid.count)
+                # sorted() so a tie breaks the same way every run: set order
+                # over strings varies with PYTHONHASHSEED, which made the
+                # daily job commit a different-but-equivalent SVG each time.
+                out[y][x] = max(sorted(set(solid)), key=solid.count)
     return out
 
 def small_sprite(sp, ox, oy, u):
