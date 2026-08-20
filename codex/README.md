@@ -20,8 +20,12 @@ python3 animate.py   # the animated screen
 ```
 
 `.github/workflows/codex.yml` runs all four daily, and on demand via *Actions →
-codex → Run workflow*. It commits only when something actually changed. Only
-`animate.py` needs a dependency (Pillow); the rest are stdlib.
+codex → Run workflow*. It commits only when something actually changed.
+
+`sync.py` and `readme.py` are stdlib only. `gen.py` and `animate.py` both need
+Pillow — `gen.py` because `sprites.avatar_sprite()` pixelates `avatar-src.png`
+for the ID card, which is easy to miss since nothing at the top of the file
+imports it.
 
 ## How it stays current
 

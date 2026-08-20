@@ -30,6 +30,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install Pillow
+        run: python3 -m pip install --quiet --disable-pip-version-check Pillow
+
       - name: Reconcile codex.json with public repos
         working-directory: codex
         env:
@@ -44,9 +47,7 @@ jobs:
 
       - name: Rebuild the animation
         working-directory: codex
-        run: |
-          python3 -m pip install --quiet --disable-pip-version-check Pillow
-          python3 animate.py
+        run: python3 animate.py
 
       - name: Commit if anything changed
         run: |
