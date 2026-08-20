@@ -176,3 +176,20 @@ def avatar_sprite(path_png):
     outline(g)
     pal['K'] = '#1A1F2B'
     return g, pal
+
+
+# ---------- generic fallback ----------
+def generic():
+    """Used for a repo that has no sprite of its own yet. A sealed carton with a
+    question mark, so an un-illustrated entry reads as 'not drawn yet' rather
+    than as a real sprite."""
+    g = blank()
+    box(g, 4, 7, 21, 21, 'B')          # carton body
+    box(g, 4, 7, 21, 10, 'L')          # lid band
+    for y, x0, x1 in ((12, 11, 14), (13, 10, 11), (13, 14, 15), (14, 14, 15),
+                      (15, 13, 14), (16, 12, 13), (17, 12, 13), (19, 12, 13)):
+        box(g, x0, y, x1, y, 'Q')      # question mark
+    outline(g)
+    return g, {'B': '#C9A46A', 'L': '#E0BE86', 'Q': '#3A2E1C', 'K': '#241C10'}
+
+SPRITES[0] = generic

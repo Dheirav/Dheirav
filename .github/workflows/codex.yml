@@ -1,0 +1,60 @@
+name: codex
+
+# Keeps the profile panels in step with what is actually public. A repo that is
+# deleted or flipped to private drops out of the public listing, so the same
+# pass handles removals and additions.
+on:
+  schedule:
+    - cron: '17 4 * * *'      # daily, 04:17 UTC
+  workflow_dispatch:           # and on demand
+  push:
+    branches: [main]
+    paths:
+      - 'codex/**'
+      - '.github/workflows/codex.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: codex
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Reconcile codex.json with public repos
+        working-directory: codex
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 sync.py
+
+      - name: Regenerate panels and README
+        working-directory: codex
+        run: |
+          python3 gen.py
+          python3 readme.py
+
+      - name: Rebuild the animation
+        working-directory: codex
+        run: |
+          python3 -m pip install --quiet --disable-pip-version-check Pillow
+          python3 animate.py
+
+      - name: Commit if anything changed
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "nothing changed"; exit 0
+          fi
+          git config user.name  "Dheirav"
+          git config user.email "dheirav2005@gmail.com"
+          git add -A
+          git commit -m "codex: sync with public repos"
+          git push

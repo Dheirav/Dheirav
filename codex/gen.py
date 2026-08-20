@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate Codex-style UI panels as pure-pixel SVG (no fonts, no external assets)."""
+import json
 import os
 from sprites import SPRITES, avatar_sprite
 
@@ -253,8 +254,8 @@ def entry(no, name, types, desc, foot, sp, lang, since, verified, theme, minline
 def trainer(theme):
     t = TH[theme]
     rows = [("NAME", "Dheirav Prakash"), ("ID No.", "63734286"),
-            ("LOCATION", "Chennai, India"), ("CODEX", "16 repos"),
-            ("VERIFIED", "3 results")]
+            ("LOCATION", "Chennai, India"), ("CODEX", f"{CNT.get('repos', 0)} repos"),
+            ("VERIFIED", f"{CNT.get('verified', 0)} results")]
     CH_H = 30
     sy = CH_H
     sh = 14 + len(rows)*11 + 12
@@ -262,7 +263,7 @@ def trainer(theme):
     o = []; A = o.append
     A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W*U}" height="{H*U}" '
       f'viewBox="0 0 {W*U} {H*U}" role="img" aria-label="ID card. Dheirav Prakash, '
-      f'Chennai India, 16 repos, 3 verified results.">')
+      f'Chennai India, {CNT.get("repos", 0)} repos, {CNT.get("verified", 0)} verified results.">')
     frame(H, t, o)
     # lens
     for r, c in ((11, '#2B3A67'), (9, '#4F7BD6'), (7, '#7FA8EC')):
@@ -304,7 +305,7 @@ def archive(items, theme):
     A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W*U}" height="{H*U}" '
       f'viewBox="0 0 {W*U} {H*U}" role="img" aria-label="Archive: {labels}">')
     frame(H, t, o); screen(5, 5, W-10, sh, t, o)
-    titlebar(bx, by, bw, "ARCHIVE", t, o, right="7 repos")
+    titlebar(bx, by, bw, "ARCHIVE", t, o, right=f"{len(items)} repos")
     gx0 = bx + (bw - (COLS*TW + (COLS-1)*GAP)) // 2
     for i, (label, sp) in enumerate(items):
         r, c = divmod(i, COLS)
@@ -350,7 +351,7 @@ def listscreen(theme):
     A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W*U}" height="{H*U}" '
       f'viewBox="0 0 {W*U} {H*U}" role="img" aria-label="Codex index: {names}">')
     frame(H, t, o); screen(5, 5, W-10, sh, t, o)
-    titlebar(bx, by, bw, "CODEX", t, o, right="6 entries")
+    titlebar(bx, by, bw, "CODEX", t, o, right=f"{len(PARTY)} entries")
     for i, e in enumerate(PARTY):
         no, name, tags, _d, _f, sp, lang, _s, ver = e
         y = top + i*RH
@@ -368,31 +369,18 @@ def listscreen(theme):
     A('</svg>')
     return "".join(o)
 
-PARTY = [
- ("No.001","ChessBot",["SEARCH","ENGINE"],
-  "A UCI chess engine written from scratch. Bitboards, alpha-beta, transposition table, null-move pruning. Every heuristic won an SPRT match before it shipped.",
-  "LICHESS 2100+ RAPID - VERIFIED", 1, "C++", "2025", True),
- ("No.002","UkuleleTabsMaker",["VISION","MUSIC"],
-  "Reads ukulele tabs off a YouTube video and prints a playable sheet. Computer vision over the notation on screen, not the audio.",
-  "99.7% RECALL / 100% PRECISION, 340 NOTES", 2, "Python", "2026", True),
- ("No.003","NashForge",["SOLVER","RESEARCH"],
-  "A CFR solver for heads-up no-limit Hold'em. An earlier training pipeline here published results. I audited it, found the fitness scored the wrong player, and withdrew them.",
-  "REPRODUCES KUHN -1/18 - EXACT LEDUC", 3, "Python", "2026", True),
- ("No.004","DeepFakeDetector",["FORENSICS","VISION"],
-  "Sorts images into real, AI-generated or AI-edited. The forensic parts I expected to carry it bought under 0.2% over a plain baseline. All 26 runs are committed.",
-  "89.5% ON 77,865 IMAGES / 20 SOURCES", 4, "Python", "2026", False),
- ("No.005","Luna",["OFFLINE","MOBILE"],
-  "An Android cycle tracker with no INTERNET permission, and there never will be one. Predicts a window instead of inventing a single date.",
-  "OFFLINE - NO ACCOUNT - NO TELEMETRY", 5, "Kotlin", "2026", False),
- ("No.006","NewsLetterScrapper",["PIPELINE","LLM"],
-  "Clusters 38 RSS feeds into stories and writes the analysis with a local LLM. Nothing ever leaves the machine.",
-  "SELF-HOSTED - NO EXTERNAL AI APIS", 6, "Python", "2026", False),
-]
-BOX = [("HelperBoi",8),("Dedupe",7),("Audio",9),
-       ("LabEval",10),("Attend",11),("SaleSnipe",12),("Carbon",13)]
+here = os.path.dirname(os.path.abspath(__file__))
+DATA = json.load(open(os.path.join(here, "codex.json")))
+CNT = DATA.get("counts", {})
+
+# (no, name, tags, desc, foot, sprite, lang, since, verified) — the shape entry() wants
+PARTY = [(e["no"], e["repo"], e["tags"], e["desc"], e["foot"],
+          e["sprite"], e["lang"], e["since"], e["verified"]) for e in DATA["party"]]
+# (label, sprite) — sprite 0 is the generic carton, for a repo with no art yet
+BOX = [(DATA["labels"].get(r, r[:10]), DATA["sprites"].get(r, 0))
+       for r in DATA["archive"]]
 
 MAXL = max(len(wrap(e[3], (W - 16 - 39 - 14) // 6)) for e in PARTY)
-here = os.path.dirname(os.path.abspath(__file__))
 set_avatar(os.path.join(here, "avatar-src.png"))
 # Single-theme output. TH still carries the light palette, so flipping this
 # back to a themed build is a one-line change.
@@ -400,7 +388,19 @@ th = "dark"
 open(os.path.join(here, "trainer.svg"), "w").write(trainer(th))
 open(os.path.join(here, "archive.svg"), "w").write(archive(BOX, th))
 open(os.path.join(here, "index.svg"), "w").write(listscreen(th))
+live = set()
 for e in PARTY:
     n = e[0].split('.')[1]
+    live.add(n)
     open(os.path.join(here, f"entry-{n}.svg"), "w").write(entry(*e, th, minlines=MAXL))
-print("generated")
+
+# A dropped entry must not leave its panel behind: the file stays fetchable by
+# raw URL and would still describe a repo that is no longer public.
+import glob
+for f in glob.glob(os.path.join(here, "entry-*.svg")):
+    n = os.path.basename(f)[6:-4]
+    if n not in live:
+        os.remove(f)
+        print(f"removed stale {os.path.basename(f)}")
+
+print(f"generated {len(PARTY)} entries + index, archive, trainer")

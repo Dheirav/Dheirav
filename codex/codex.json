@@ -1,0 +1,128 @@
+{
+  "owner": "Dheirav",
+  "exclude": [
+    "Dheirav"
+  ],
+  "labels": {
+    "photo-dedupe-review": "Dedupe",
+    "AudioTranscriber": "Audio",
+    "LabEvaluationSystem": "LabEval",
+    "Attendance_Tracker_Mobile": "Attend",
+    "Carbon_Gauge": "Carbon",
+    "who-pays-for-fairness": "Fairness",
+    "HelperBoi": "HelperBoi",
+    "SaleSnipe": "SaleSnipe"
+  },
+  "sprites": {
+    "HelperBoi": 8,
+    "photo-dedupe-review": 7,
+    "AudioTranscriber": 9,
+    "LabEvaluationSystem": 10,
+    "Attendance_Tracker_Mobile": 11,
+    "SaleSnipe": 12,
+    "Carbon_Gauge": 13
+  },
+  "party": [
+    {
+      "no": "No.001",
+      "repo": "ChessBot",
+      "tags": [
+        "SEARCH",
+        "ENGINE"
+      ],
+      "desc": "A UCI chess engine written from scratch. Bitboards, alpha-beta, transposition table, null-move pruning. Every heuristic won an SPRT match before it shipped.",
+      "foot": "LICHESS 2100+ RAPID - VERIFIED",
+      "sprite": 1,
+      "lang": "C++",
+      "since": "2025",
+      "verified": true
+    },
+    {
+      "no": "No.002",
+      "repo": "UkuleleTabsMaker",
+      "tags": [
+        "VISION",
+        "MUSIC"
+      ],
+      "desc": "Reads ukulele tabs off a YouTube video and prints a playable sheet. Computer vision over the notation on screen, not the audio.",
+      "foot": "99.7% RECALL / 100% PRECISION, 340 NOTES",
+      "sprite": 2,
+      "lang": "Python",
+      "since": "2026",
+      "verified": true
+    },
+    {
+      "no": "No.003",
+      "repo": "NashForge",
+      "tags": [
+        "SOLVER",
+        "RESEARCH"
+      ],
+      "desc": "A CFR solver for heads-up no-limit Hold'em. An earlier training pipeline here published results. I audited it, found the fitness scored the wrong player, and withdrew them.",
+      "foot": "REPRODUCES KUHN -1/18 - EXACT LEDUC",
+      "sprite": 3,
+      "lang": "Python",
+      "since": "2026",
+      "verified": true
+    },
+    {
+      "no": "No.004",
+      "repo": "DeepFakeDetector",
+      "tags": [
+        "FORENSICS",
+        "VISION"
+      ],
+      "desc": "Sorts images into real, AI-generated or AI-edited. The forensic parts I expected to carry it bought under 0.2% over a plain baseline. All 26 runs are committed.",
+      "foot": "89.5% ON 77,865 IMAGES / 20 SOURCES",
+      "sprite": 4,
+      "lang": "Python",
+      "since": "2026",
+      "verified": false
+    },
+    {
+      "no": "No.005",
+      "repo": "Luna",
+      "tags": [
+        "OFFLINE",
+        "MOBILE"
+      ],
+      "desc": "An Android cycle tracker with no INTERNET permission, and there never will be one. Predicts a window instead of inventing a single date.",
+      "foot": "OFFLINE - NO ACCOUNT - NO TELEMETRY",
+      "sprite": 5,
+      "lang": "Kotlin",
+      "since": "2026",
+      "verified": false
+    },
+    {
+      "no": "No.006",
+      "repo": "NewsLetterScrapper",
+      "tags": [
+        "PIPELINE",
+        "LLM"
+      ],
+      "desc": "Clusters 38 RSS feeds into stories and writes the analysis with a local LLM. Nothing ever leaves the machine.",
+      "foot": "SELF-HOSTED - NO EXTERNAL AI APIS",
+      "sprite": 6,
+      "lang": "Python",
+      "since": "2026",
+      "verified": false
+    }
+  ],
+  "archive": [
+    "HelperBoi",
+    "photo-dedupe-review",
+    "AudioTranscriber",
+    "LabEvaluationSystem",
+    "Attendance_Tracker_Mobile",
+    "SaleSnipe",
+    "Carbon_Gauge",
+    "who-pays-for-fairness"
+  ],
+  "retired": [],
+  "counts": {
+    "repos": 14,
+    "verified": 3,
+    "entries": 6,
+    "archive": 8
+  }
+}
