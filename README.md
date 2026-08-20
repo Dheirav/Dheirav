@@ -40,10 +40,4 @@
 <a href="https://github.com/Dheirav/Carbon_Gauge">Carbon_Gauge</a>
 </sub>
 
----
-
-Negative results stay in the repo, and so do the retractions.
-[`CODEBASE_AUDIT.md`](https://github.com/Dheirav/NashForge/blob/main/CODEBASE_AUDIT.md) is where I
-established my own published results were wrong and withdrew them.
-
 [LinkedIn](https://www.linkedin.com/in/dheirav-prakash-63a107308/) · [dheirav2005@gmail.com](mailto:dheirav2005@gmail.com)
