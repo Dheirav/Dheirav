@@ -40,4 +40,6 @@
 <a href="https://github.com/Dheirav/Carbon_Gauge">Carbon_Gauge</a>
 </sub>
 
+---
+
 [LinkedIn](https://www.linkedin.com/in/dheirav-prakash-63a107308/) · [dheirav2005@gmail.com](mailto:dheirav2005@gmail.com)
