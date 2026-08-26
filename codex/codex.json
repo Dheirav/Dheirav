@@ -11,7 +11,8 @@
     "Carbon_Gauge": "Carbon",
     "who-pays-for-fairness": "Fairness",
     "HelperBoi": "HelperBoi",
-    "SaleSnipe": "SaleSnipe"
+    "SaleSnipe": "SaleSnipe",
+    "BrassBot": "BrassBot"
   },
   "sprites": {
     "HelperBoi": 8,
@@ -117,13 +118,14 @@
     "Attendance_Tracker_Mobile",
     "SaleSnipe",
     "Carbon_Gauge",
-    "who-pays-for-fairness"
+    "who-pays-for-fairness",
+    "BrassBot"
   ],
   "retired": [],
   "counts": {
-    "repos": 14,
+    "repos": 15,
     "verified": 3,
     "entries": 6,
-    "archive": 8
+    "archive": 9
   }
 }
