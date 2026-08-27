@@ -1,4 +1,4 @@
-<img alt="ID card — Dheirav Prakash, Chennai India, 15 repos, 3 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer.svg">
+<img alt="ID card — Dheirav Prakash, Chennai India, 15 repos, 4 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer.svg">
 
 <img alt="Codex index — 001 ChessBot (Search/Engine, C++, since 2025); 002 UkuleleTabsMaker (Vision/Music, Python, since 2026); 003 NashForge (Solver/Research, Python, since 2026); 004 DeepFakeDetector (Forensics/Vision, Python, since 2026); 005 Luna (Offline/Mobile, Kotlin, since 2026); 006 NewsLetterScrapper (Pipeline/LLM, Python, since 2026)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index.svg">
 

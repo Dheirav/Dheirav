@@ -102,9 +102,12 @@
     {
       "no": "No.007",
       "repo": "HelperBoi",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "LLM",
+        "TOOLS"
+      ],
+      "desc": "A ReAct agent over an Obsidian vault: it classifies the request, retrieves matching notes, then chains tools. It can also write a new skill, compile-test it and register it for next time.",
+      "foot": "OLLAMA - REACT LOOP - SELF-WRITTEN SKILLS",
       "sprite": 8,
       "lang": "Python",
       "since": "2026",
@@ -113,9 +116,12 @@
     {
       "no": "No.008",
       "repo": "photo-dedupe-review",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "VISION",
+        "TOOLS"
+      ],
+      "desc": "Groups duplicate photos and videos for review and never picks a keeper for you. Hashes only propose a pair; the pixels decide, which stops burst shots being called copies.",
+      "foot": "251 TESTS - 865 PHOTOS IN 3.1S",
       "sprite": 7,
       "lang": "Python",
       "since": "2026",
@@ -124,9 +130,12 @@
     {
       "no": "No.009",
       "repo": "AudioTranscriber",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "SPEECH",
+        "TOOLS"
+      ],
+      "desc": "Transcribes audio and video with a local Whisper model, from a CLI or a Streamlit page. It also runs live on system audio, routed through a PulseAudio monitor, in three-second chunks.",
+      "foot": "3-SECOND CHUNKS - 1-2S LATENCY ON TINY",
       "sprite": 9,
       "lang": "Python",
       "since": "2025",
@@ -135,9 +144,12 @@
     {
       "no": "No.010",
       "repo": "LabEvaluationSystem",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "WEB",
+        "TOOLS"
+      ],
+      "desc": "A lab-evaluation system for a university department. Faculty schedule tests from a question pool, a fresh login retires the older session, and every action is logged with its IP.",
+      "foot": "ONE LIVE SESSION - IP-STAMPED AUDIT LOG",
       "sprite": 10,
       "lang": "JavaScript",
       "since": "2025",
@@ -146,9 +158,12 @@
     {
       "no": "No.011",
       "repo": "Attendance_Tracker_Mobile",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "MOBILE",
+        "TOOLS"
+      ],
+      "desc": "An Android attendance tracker in Compose and Room. Subjects carry a weekly timetable, so it opens on today's classes, and the safe-skip calculator says how many more you can miss.",
+      "foot": "COMPOSE - ROOM - REMINDER WORKER",
       "sprite": 11,
       "lang": "Kotlin",
       "since": "2025",
@@ -157,9 +172,12 @@
     {
       "no": "No.012",
       "repo": "SaleSnipe",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "PIPELINE",
+        "WEB"
+      ],
+      "desc": "Scrapes Amazon, eBay and Flipkart into MongoDB on a cron, keeps the price history and alerts on a drop. A CLI reports what is trending, what discounts hardest and what is volatile.",
+      "foot": "4 SCRAPERS - TRENDING AT 15% IN 7 DAYS",
       "sprite": 12,
       "lang": "JavaScript",
       "since": "2025",
@@ -168,9 +186,12 @@
     {
       "no": "No.013",
       "repo": "Carbon_Gauge",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "WEB",
+        "TOOLS"
+      ],
+      "desc": "Splits a machining job's CO2 into four terms - electricity, tool wear, coolant and material - so the tool grade and the coolant's disposal route change the answer, not just the run hours.",
+      "foot": "4 TERMS - 29 TOOL GRADES, 4 DISPOSALS",
       "sprite": 13,
       "lang": "JavaScript",
       "since": "2025",
@@ -179,22 +200,28 @@
     {
       "no": "No.014",
       "repo": "who-pays-for-fairness",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "RESEARCH",
+        "FAIRNESS"
+      ],
+      "desc": "Reproduces a fairness-constraint paper on Adult Census, then asks who paid. The demographic-parity constraint makes equalized odds 3.3x worse, and closes the gap by taking, not lifting.",
+      "foot": "DP 0.161 TO 0.019 - EO 3.3X WORSE",
       "sprite": 14,
       "lang": "Python",
       "since": "2026",
-      "verified": false
+      "verified": true
     },
     {
       "no": "No.015",
       "repo": "BrassBot",
-      "tags": [],
-      "desc": "",
-      "foot": "",
+      "tags": [
+        "SEARCH",
+        "ENGINE"
+      ],
+      "desc": "A rules engine, bots and a measurement harness for Brass: Birmingham. The MCTS bot wins 66.7% of four-player games against three heuristics, where an equal share would be 25%.",
+      "foot": "115.6 VP, 66.7% WIN - EQUAL SHARE 25%",
       "sprite": 15,
-      "lang": "",
+      "lang": "Python",
       "since": "2026",
       "verified": false
     }
@@ -221,9 +248,9 @@
   "retired": [],
   "counts": {
     "repos": 15,
-    "verified": 3,
+    "verified": 4,
     "entries": 15,
-    "cards": 6,
+    "cards": 15,
     "party": 6,
     "archive": 9
   }
