@@ -201,6 +201,32 @@ def scales():
 SPRITES[14] = scales
 
 
+def brass():
+    """BrassBot: a bot for Brass: Birmingham. A brass cog with a game piece
+    standing in front of it, ivory so it reads as the same piece as chess().
+
+    Six fat teeth rather than a finer gear, and the piece stands full height
+    rather than sitting in the hub: the archive tile renders this through
+    gen.half() at 13x13, and anything smaller than these dissolves in the
+    majority vote. The gear itself does not survive that reduction - what
+    reads at tile size is the ivory piece against brass."""
+    g = blank()
+    # teeth first; the body discs cap their inner ends and leave the gaps
+    for x0, y0, x1, y1 in ((10, 0, 14, 4), (19, 5, 23, 9), (19, 15, 23, 19),
+                           (10, 20, 14, 24), (1, 15, 5, 19), (1, 5, 5, 9)):
+        box(g, x0, y0, x1, y1, 'H')
+    disc(g, 12, 12, 8, 'G')             # rim
+    disc(g, 12, 12, 7, 'H')             # brass face
+    disc(g, 12, 7, 3, 'P')              # head
+    box(g, 10, 10, 14, 12, 'P')         # neck
+    box(g, 8, 12, 16, 13, 'P')          # collar
+    tri(g, 12, 14, 19, 5, 11, 'P')      # body
+    box(g, 6, 20, 18, 21, 'P')          # base
+    outline(g)
+    return g, {'H': '#C8912F', 'G': '#8A5F1E', 'P': '#F2F2F5', 'K': '#241A08'}
+
+SPRITES[15] = brass
+
 # ---------- generic fallback ----------
 def generic():
     """Used for a repo that has no sprite of its own yet. A sealed carton with a
