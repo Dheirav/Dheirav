@@ -24,13 +24,25 @@ def esc(s):
     return s.replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;")
 
 
+def renderable(e):
+    """Same rule gen.py draws by. Mirrored rather than imported: gen.py builds
+    everything at import time, so importing it here would run the whole build."""
+    return bool(e.get("desc") and e.get("foot") and e.get("tags"))
+
+
 def nice(tag):
     """SEARCH -> Search, but LLM stays LLM. Short tags are acronyms."""
     return tag.upper() if len(tag) <= 3 else tag.capitalize()
 
 
 def main():
-    party, arch = DATA["party"], DATA["archive"]
+    dex = {e["repo"]: e for e in DATA["dex"]}
+    # Only the pinned six reach the profile. Every other repo with prose still
+    # has its card sitting in codex/, ready for the next time the party changes.
+    party = [dex[r] for r in DATA["party"] if r in dex and renderable(dex[r])]
+    # sync.py owns this list; until it next runs, a just-pinned repo is still
+    # in it and would be both a card and an archive tile.
+    arch = [x for x in DATA["archive"] if x not in set(DATA["party"])]
     labels, counts = DATA["labels"], DATA.get("counts", {})
     out = []
 

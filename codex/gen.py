@@ -128,7 +128,13 @@ TYPES = {
  'SEARCH':'#4F7BD6','ENGINE':'#8E96AD','VISION':'#D4497E','MUSIC':'#C9789F',
  'SOLVER':'#6F4FC0','RESEARCH':'#5A6B8C','FORENSICS':'#6E5A46','MOBILE':'#7A5F9E',
  'OFFLINE':'#3F8F63','PIPELINE':'#C9A227','LLM':'#D1793C','TOOLS':'#7E8570',
+ # Hues the palette had not used: teal, indigo, and a dusty rose kept darker
+ # and less saturated than VISION so the two do not read as the same chip.
+ 'SPEECH':'#2F8F8A','WEB':'#4C5BA8','FAIRNESS':'#A0526B',
 }
+# A tag with no colour yet still has to draw, or writing one card breaks the
+# whole build. Slate is deliberately dull so an unstyled tag looks unfinished.
+TYPE_FALLBACK = '#6B7280'
 DARKTEXT = set()
 
 TH = {
@@ -238,7 +244,7 @@ def entry(no, name, types, desc, foot, sp, lang, since, verified, theme, minline
     cx = rx
     for ty in types:
         cw = len(ty)*6 + 7
-        A(f'<rect x="{cx*U}" y="{ctop*U}" width="{cw*U}" height="{11*U}" rx="{2*U}" fill="{TYPES[ty]}"/>')
+        A(f'<rect x="{cx*U}" y="{ctop*U}" width="{cw*U}" height="{11*U}" rx="{2*U}" fill="{TYPES.get(ty, TYPE_FALLBACK)}"/>')
         A(f'<path d="{path(px(ty, cx+4, ctop+2), U)}" fill="{"#1A1A1A" if ty in DARKTEXT else "#FFFFFF"}"/>')
         cx += cw + 4
     A(f'<rect x="{rx*U}" y="{tb_top*U}" width="{rw*U}" height="{(body_h+8)*U}" rx="{2*U}" '
@@ -366,7 +372,7 @@ def listscreen(theme):
         tg = tags[0]
         cw = len(tg)*6 + 5
         cx = bx + bw - 19 - cw
-        A(f'<rect x="{cx*U}" y="{(y+3)*U}" width="{cw*U}" height="{10*U}" rx="{2*U}" fill="{TYPES[tg]}"/>')
+        A(f'<rect x="{cx*U}" y="{(y+3)*U}" width="{cw*U}" height="{10*U}" rx="{2*U}" fill="{TYPES.get(tg, TYPE_FALLBACK)}"/>')
         A(f'<path d="{path(px(tg, cx+3, y+4), U)}" fill="#FFFFFF"/>')
         if ver: A(seal(bx + bw - 13, y + 3, U))
     A('</svg>')
@@ -376,14 +382,37 @@ here = os.path.dirname(os.path.abspath(__file__))
 DATA = json.load(open(os.path.join(here, "codex.json")))
 CNT = DATA.get("counts", {})
 
-# (no, name, tags, desc, foot, sprite, lang, since, verified) — the shape entry() wants
-PARTY = [(e["no"], e["repo"], e["tags"], e["desc"], e["foot"],
-          e["sprite"], e["lang"], e["since"], e["verified"]) for e in DATA["party"]]
-# (label, sprite) — sprite 0 is the generic carton, for a repo with no art yet
-BOX = [(DATA["labels"].get(r, r[:10]), DATA["sprites"].get(r, 0))
-       for r in DATA["archive"]]
 
-MAXL = max(len(wrap(e[3], (W - 16 - 39 - 14) // 6)) for e in PARTY)
+def renderable(e):
+    """Whether enough is written to draw a card. Mirrored in sync.py and
+    readme.py rather than shared: both run as scripts, and importing this
+    module for one predicate would run the whole build as a side effect."""
+    return bool(e.get("desc") and e.get("foot") and e.get("tags"))
+
+
+def row(e):
+    """(no, name, tags, desc, foot, sprite, lang, since, verified) - entry()'s shape"""
+    return (e["no"], e["repo"], e["tags"], e["desc"], e["foot"],
+            e["sprite"], e["lang"], e["since"], e["verified"])
+
+
+DEX = {e["repo"]: e for e in DATA["dex"]}
+# A card is drawn for every repo that has prose, pinned or not, so that pinning
+# one is an edit to `party` and not a card written from scratch.
+CARDS = [e for e in DATA["dex"] if renderable(e)]
+PARTY = [row(DEX[r]) for r in DATA["party"] if renderable(DEX[r])]
+for r in DATA["party"]:
+    if not renderable(DEX[r]):
+        print(f"skipping pinned {r}: no card yet (needs tags, desc, foot)")
+# (label, sprite) - sprite 0 is the generic carton, for a repo with no art yet.
+# sync.py owns the archive list, so between a pin swap and the next sync a
+# newly pinned repo is still listed here; drop it rather than show it twice.
+BOX = [(DATA["labels"].get(r, r[:10]), DEX[r]["sprite"] if r in DEX else 0)
+       for r in DATA["archive"] if r not in set(DATA["party"])]
+
+# One height for every card: a card drawn now must still line up when it is
+# pinned later, and animate.py pastes its frames at a constant size.
+MAXL = max((len(wrap(e["desc"], (W - 16 - 39 - 14) // 6)) for e in CARDS), default=1)
 set_avatar(os.path.join(here, "avatar-src.png"))
 # Single-theme output. TH still carries the light palette, so flipping this
 # back to a themed build is a one-line change.
@@ -392,13 +421,15 @@ open(os.path.join(here, "trainer.svg"), "w").write(trainer(th))
 open(os.path.join(here, "archive.svg"), "w").write(archive(BOX, th))
 open(os.path.join(here, "index.svg"), "w").write(listscreen(th))
 live = set()
-for e in PARTY:
-    n = e[0].split('.')[1]
+for e in CARDS:
+    n = e["no"].split('.')[1]
     live.add(n)
-    open(os.path.join(here, f"entry-{n}.svg"), "w").write(entry(*e, th, minlines=MAXL))
+    open(os.path.join(here, f"entry-{n}.svg"), "w").write(
+        entry(*row(e), th, minlines=MAXL))
 
-# A dropped entry must not leave its panel behind: the file stays fetchable by
-# raw URL and would still describe a repo that is no longer public.
+# A card whose repo has gone must not leave its panel behind: the file stays
+# fetchable by raw URL and would still describe a repo that is no longer
+# public. `live` is every card drawn this run, not just the pinned ones.
 import glob
 for f in glob.glob(os.path.join(here, "entry-*.svg")):
     n = os.path.basename(f)[6:-4]
@@ -406,4 +437,7 @@ for f in glob.glob(os.path.join(here, "entry-*.svg")):
         os.remove(f)
         print(f"removed stale {os.path.basename(f)}")
 
-print(f"generated {len(PARTY)} entries + index, archive, trainer")
+waiting = [e["repo"] for e in DATA["dex"] if not renderable(e)]
+if waiting:
+    print(f"no card yet ({len(waiting)}): " + ", ".join(waiting))
+print(f"generated {len(CARDS)} cards ({len(PARTY)} pinned) + index, archive, trainer")

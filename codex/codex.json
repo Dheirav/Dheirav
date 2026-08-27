@@ -14,18 +14,7 @@
     "SaleSnipe": "SaleSnipe",
     "BrassBot": "BrassBot"
   },
-  "sprites": {
-    "HelperBoi": 8,
-    "photo-dedupe-review": 7,
-    "AudioTranscriber": 9,
-    "LabEvaluationSystem": 10,
-    "Attendance_Tracker_Mobile": 11,
-    "SaleSnipe": 12,
-    "Carbon_Gauge": 13,
-    "who-pays-for-fairness": 14,
-    "BrassBot": 15
-  },
-  "party": [
+  "dex": [
     {
       "no": "No.001",
       "repo": "ChessBot",
@@ -109,7 +98,114 @@
       "lang": "Python",
       "since": "2026",
       "verified": false
+    },
+    {
+      "no": "No.007",
+      "repo": "HelperBoi",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 8,
+      "lang": "Python",
+      "since": "2026",
+      "verified": false
+    },
+    {
+      "no": "No.008",
+      "repo": "photo-dedupe-review",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 7,
+      "lang": "Python",
+      "since": "2026",
+      "verified": false
+    },
+    {
+      "no": "No.009",
+      "repo": "AudioTranscriber",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 9,
+      "lang": "Python",
+      "since": "2025",
+      "verified": false
+    },
+    {
+      "no": "No.010",
+      "repo": "LabEvaluationSystem",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 10,
+      "lang": "JavaScript",
+      "since": "2025",
+      "verified": false
+    },
+    {
+      "no": "No.011",
+      "repo": "Attendance_Tracker_Mobile",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 11,
+      "lang": "Kotlin",
+      "since": "2025",
+      "verified": false
+    },
+    {
+      "no": "No.012",
+      "repo": "SaleSnipe",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 12,
+      "lang": "JavaScript",
+      "since": "2025",
+      "verified": false
+    },
+    {
+      "no": "No.013",
+      "repo": "Carbon_Gauge",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 13,
+      "lang": "JavaScript",
+      "since": "2025",
+      "verified": false
+    },
+    {
+      "no": "No.014",
+      "repo": "who-pays-for-fairness",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 14,
+      "lang": "Python",
+      "since": "2026",
+      "verified": false
+    },
+    {
+      "no": "No.015",
+      "repo": "BrassBot",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 15,
+      "lang": "",
+      "since": "2026",
+      "verified": false
     }
+  ],
+  "party": [
+    "ChessBot",
+    "UkuleleTabsMaker",
+    "NashForge",
+    "DeepFakeDetector",
+    "Luna",
+    "NewsLetterScrapper"
   ],
   "archive": [
     "HelperBoi",
@@ -126,7 +222,9 @@
   "counts": {
     "repos": 15,
     "verified": 3,
-    "entries": 6,
+    "entries": 15,
+    "cards": 6,
+    "party": 6,
     "archive": 9
   }
 }
