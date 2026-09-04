@@ -12,7 +12,8 @@
     "who-pays-for-fairness": "Fairness",
     "HelperBoi": "HelperBoi",
     "SaleSnipe": "SaleSnipe",
-    "BrassBot": "BrassBot"
+    "BrassBot": "BrassBot",
+    "ConwayClock": "Conway"
   },
   "dex": [
     {
@@ -218,10 +219,24 @@
         "SEARCH",
         "ENGINE"
       ],
-      "desc": "A rules engine, bots and a measurement harness for Brass: Birmingham. The MCTS bot wins 66.7% of four-player games against three heuristics, where an equal share would be 25%.",
-      "foot": "115.6 VP, 66.7% WIN - EQUAL SHARE 25%",
+      "desc": "A rules engine, bots and a measurement harness for Brass: Birmingham. Search kept losing to the evaluation it searched with, so the bot that ships is the plain heuristic.",
+      "foot": "131.3 VP MIRROR, 146.7 VS GREEDY AT 4P",
       "sprite": 15,
       "lang": "Python",
+      "since": "2026",
+      "verified": false
+    },
+    {
+      "no": "No.016",
+      "repo": "ConwayClock",
+      "tags": [
+        "AUTOMATA",
+        "ENGINE"
+      ],
+      "desc": "A digital clock built inside Conway's Game of Life, running as a Windows wallpaper behind the desktop icons. A Hashlife engine in C steps it 192 generations a second to keep time.",
+      "foot": "192 GEN/S AT 4% OF ONE CORE, NO GPU",
+      "sprite": 16,
+      "lang": "C",
       "since": "2026",
       "verified": false
     }
@@ -243,15 +258,16 @@
     "SaleSnipe",
     "Carbon_Gauge",
     "who-pays-for-fairness",
-    "BrassBot"
+    "BrassBot",
+    "ConwayClock"
   ],
   "retired": [],
   "counts": {
-    "repos": 15,
+    "repos": 16,
     "verified": 4,
-    "entries": 15,
-    "cards": 15,
+    "entries": 16,
+    "cards": 16,
     "party": 6,
-    "archive": 9
+    "archive": 10
   }
 }

@@ -227,6 +227,30 @@ def brass():
 
 SPRITES[15] = brass
 
+def lifeclock():
+    """ConwayClock: a digital clock computed inside Conway's Game of Life and run
+    as a wallpaper. A plain clock face rather than a Life pattern - a glider or a
+    cell grid is unreadable once gen.half() takes this to 13x13 for the archive
+    tile, and the steel-and-amber case keeps it clear of brass()'s gold disc in
+    the same grid."""
+    g = blank()
+    disc(g, 12, 12, 11, 'B')            # case
+    disc(g, 12, 12, 8, 'F')             # face, dark like the wallpaper
+    # A euclidean disc ends in one pixel at each cardinal point. Left alone the
+    # case's four sprout outline spikes, and the face's four punch through the
+    # ring - which at 13x13 reads as a notch in the bottom of the case.
+    for x, y in ((12, 1), (12, 23), (1, 12), (23, 12)):
+        g[y][x] = '.'
+    for x, y in ((12, 4), (12, 20), (4, 12), (20, 12)):
+        g[y][x] = 'B'
+    box(g, 11, 6, 13, 13, 'A')          # hour hand
+    box(g, 12, 11, 17, 13, 'A')         # minute hand, kept clear of the ring
+    disc(g, 12, 12, 1, 'A')
+    outline(g)
+    return g, {'B': '#7E8AA0', 'F': '#12161E', 'A': '#F2B03C', 'K': '#1A2030'}
+
+SPRITES[16] = lifeclock
+
 # ---------- generic fallback ----------
 def generic():
     """Used for a repo that has no sprite of its own yet. A sealed carton with a
