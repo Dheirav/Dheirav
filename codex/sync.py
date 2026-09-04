@@ -53,6 +53,9 @@ def fetch_public(owner):
                 # null for a repo with no code in it yet
                 "lang": repo.get("language") or "",
                 "since": (repo.get("created_at") or "")[:4],
+                # not used here; stale.py reads it, and sharing this one fetch
+                # keeps there being a single place that talks to the API
+                "pushed": repo.get("pushed_at") or "",
             })
         url = None
         for part in link.split(","):

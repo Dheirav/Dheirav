@@ -112,7 +112,8 @@
       "sprite": 8,
       "lang": "Python",
       "since": "2026",
-      "verified": false
+      "verified": false,
+      "checked": "2026-09-04T17:47:34+00:00"
     },
     {
       "no": "No.008",
@@ -168,7 +169,8 @@
       "sprite": 11,
       "lang": "Kotlin",
       "since": "2025",
-      "verified": false
+      "verified": false,
+      "checked": "2026-09-04T17:47:34+00:00"
     },
     {
       "no": "No.012",
@@ -182,7 +184,8 @@
       "sprite": 12,
       "lang": "JavaScript",
       "since": "2025",
-      "verified": false
+      "verified": false,
+      "checked": "2026-09-04T17:47:34+00:00"
     },
     {
       "no": "No.013",
@@ -196,7 +199,8 @@
       "sprite": 13,
       "lang": "JavaScript",
       "since": "2025",
-      "verified": false
+      "verified": false,
+      "checked": "2026-09-04T17:47:34+00:00"
     },
     {
       "no": "No.014",

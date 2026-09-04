@@ -25,6 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # stale.py dates a card from the history of codex.json. At the
+          # default depth of 1 there is no history and every card looks as
+          # though it was written at the only commit present.
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -48,6 +53,27 @@ jobs:
       - name: Rebuild the animation
         working-directory: codex
         run: python3 animate.py
+
+      - name: Flag cards the repo has outrun
+        # Reports only. A card going stale is a prompt to re-read prose, not a
+        # build failure, and failing the daily job would just train us to ignore
+        # it. The findings go to the run summary and to warning annotations.
+        continue-on-error: true
+        working-directory: codex
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          out=$(python3 stale.py) || true
+          printf '%s\n' "$out"
+          {
+            echo '## Cards the repo has outrun'
+            echo
+            echo '```'
+            printf '%s\n' "$out"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          printf '%s\n' "$out" | sed -n \
+            's/^  \(No\.[0-9]*\)  \([^ ]*\).*repo moved \([0-9]*\)d later.*/::warning title=Card may be stale::\1 \2 — repo moved \3d after the card was written/p'
 
       - name: Commit if anything changed
         run: |
