@@ -13,7 +13,8 @@
     "HelperBoi": "HelperBoi",
     "SaleSnipe": "SaleSnipe",
     "BrassBot": "BrassBot",
-    "ConwayClock": "Conway"
+    "ConwayClock": "Conway",
+    "ThirstTrap": "ThirstTrap"
   },
   "dex": [
     {
@@ -243,6 +244,17 @@
       "lang": "C",
       "since": "2026",
       "verified": false
+    },
+    {
+      "no": "No.017",
+      "repo": "ThirstTrap",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 0,
+      "lang": "",
+      "since": "2026",
+      "verified": false
     }
   ],
   "party": [
@@ -263,15 +275,16 @@
     "Carbon_Gauge",
     "who-pays-for-fairness",
     "BrassBot",
-    "ConwayClock"
+    "ConwayClock",
+    "ThirstTrap"
   ],
   "retired": [],
   "counts": {
-    "repos": 16,
+    "repos": 17,
     "verified": 4,
-    "entries": 16,
+    "entries": 17,
     "cards": 16,
     "party": 6,
-    "archive": 10
+    "archive": 11
   }
 }
