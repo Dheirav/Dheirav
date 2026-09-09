@@ -248,10 +248,12 @@
     {
       "no": "No.017",
       "repo": "ThirstTrap",
-      "tags": [],
-      "desc": "",
-      "foot": "",
-      "sprite": 0,
+      "tags": [
+        "PLANTS"
+      ],
+      "desc": "Tells you when a pot needs water by weighing it, not by a calendar. Fits a drying curve to kitchen-scale readings, robustly enough that one weighing with the saucer still on does not bend it.",
+      "foot": "214 JVM + 13 DEVICE TESTS, SCHEMA V10",
+      "sprite": 17,
       "lang": "Kotlin",
       "since": "2026",
       "verified": false

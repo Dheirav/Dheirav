@@ -131,6 +131,8 @@ TYPES = {
  # Hues the palette had not used: teal, indigo, and a dusty rose kept darker
  # and less saturated than VISION so the two do not read as the same chip.
  'SPEECH':'#2F8F8A','WEB':'#4C5BA8','FAIRNESS':'#A0526B','AUTOMATA':'#9B4FA8',
+ # Moss, kept yellower than OFFLINE's blue-green so the two do not read alike.
+ 'PLANTS':'#6E8B3D',
 }
 # A tag with no colour yet still has to draw, or writing one card breaks the
 # whole build. Slate is deliberately dull so an unstyled tag looks unfinished.

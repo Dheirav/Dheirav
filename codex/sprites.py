@@ -251,6 +251,28 @@ def lifeclock():
 
 SPRITES[16] = lifeclock
 
+def potscale():
+    """ThirstTrap: a pot standing on a kitchen scale. The whole apparatus the
+    app needs. The scale is a slab rather than a drawn appliance because at 26
+    pixels the detail turns to mud and only the silhouette survives."""
+    g = blank()
+    disc(g, 12, 5, 4, 'L')              # crown
+    disc(g,  7, 8, 3, 'L')              # left leaf
+    disc(g, 17, 8, 3, 'L')              # right leaf
+    box(g, 12, 9, 13, 11, 'M')          # stem, only where it shows
+    box(g, 6, 12, 19, 13, 'P')          # pot rim
+    box(g, 8, 12, 17, 12, 'D')          # soil sitting in the rim
+    tri(g, 12, 14, 18, 13, 9, 'P')      # pot body, tapering to the base
+    box(g, 2, 19, 23, 23, 'S')          # the scale, wider than the pot
+    box(g, 2, 19, 23, 19, 'H')          # lit top edge
+    box(g, 5, 21, 11, 22, 'G')          # display window
+    outline(g)
+    return g, {'L': '#5E9E6B', 'M': '#3F7A4E', 'P': '#B5674A', 'D': '#4A3A2E',
+               'S': '#9AA3B5', 'H': '#C4CBD9', 'G': '#1E3A38', 'K': '#20242E'}
+
+SPRITES[17] = potscale
+
+
 # ---------- generic fallback ----------
 def generic():
     """Used for a repo that has no sprite of its own yet. A sealed carton with a
