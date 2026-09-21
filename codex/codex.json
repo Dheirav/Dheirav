@@ -24,8 +24,8 @@
         "SEARCH",
         "ENGINE"
       ],
-      "desc": "A UCI chess engine written from scratch. Bitboards, alpha-beta, transposition table, null-move pruning. Every heuristic won an SPRT match before it shipped.",
-      "foot": "LICHESS 2100+ RAPID - VERIFIED",
+      "desc": "A UCI chess engine written from scratch. Alpha-beta, lock-free transposition table, Lazy SMP, null-move and late-move pruning. Heuristics are gated on self-play; losers stay logged.",
+      "foot": "LICHESS 2200+ RAPID - VERIFIED",
       "sprite": 1,
       "lang": "C++",
       "since": "2025",
@@ -38,8 +38,8 @@
         "VISION",
         "MUSIC"
       ],
-      "desc": "Reads ukulele tabs off a YouTube video and prints a playable sheet. Computer vision over the notation on screen, not the audio.",
-      "foot": "99.7% RECALL / 100% PRECISION, 340 NOTES",
+      "desc": "Reads ukulele tabs off a YouTube video and prints a playable sheet. Fret numbers come from vision on the notation; timing from the player's highlight, or the soundtrack if there is none.",
+      "foot": "98.7% RECALL / 100% PRECISION, 316 NOTES",
       "sprite": 2,
       "lang": "Python",
       "since": "2026",
@@ -52,8 +52,8 @@
         "SOLVER",
         "RESEARCH"
       ],
-      "desc": "A CFR solver for heads-up no-limit Hold'em. An earlier training pipeline here published results. I audited it, found the fitness scored the wrong player, and withdrew them.",
-      "foot": "REPRODUCES KUHN -1/18 - EXACT LEDUC",
+      "desc": "An MCCFR solver for heads-up no-limit Hold'em with a C++ core. Its bot won Chipzen season 6, 4-1 as top seed and 3-0 in the playoffs. An earlier pipeline's results were withdrawn.",
+      "foot": "CHIPZEN SEASON 6 CHAMPION - 4-1 RR, 3-0 KO",
       "sprite": 3,
       "lang": "Python",
       "since": "2026",
@@ -66,12 +66,12 @@
         "FORENSICS",
         "VISION"
       ],
-      "desc": "Sorts images into real, AI-generated or AI-edited. The forensic parts I expected to carry it bought under 0.2% over a plain baseline. All 26 runs are committed.",
-      "foot": "89.5% ON 77,865 IMAGES / 20 SOURCES",
+      "desc": "Sorts images into real, AI-generated or AI-edited. The first model's 89% measured which dataset a file came from. Rebuilt on shortcut-free data: 80.4% in-domain, 72.3% unseen.",
+      "foot": "80.4% IN-DOMAIN / 72.3% HELD-OUT RECALL",
       "sprite": 4,
       "lang": "Python",
       "since": "2026",
-      "verified": false
+      "verified": true
     },
     {
       "no": "No.005",
@@ -94,8 +94,8 @@
         "PIPELINE",
         "LLM"
       ],
-      "desc": "Clusters 38 RSS feeds into stories and writes the analysis with a local LLM. Nothing ever leaves the machine.",
-      "foot": "SELF-HOSTED - NO EXTERNAL AI APIS",
+      "desc": "Clusters 40 RSS feeds into stories and writes the analysis with a local Ollama model. No article text reaches a third-party AI. Only RSS fetches and the emailed briefing leave.",
+      "foot": "SELF-HOSTED OLLAMA - NO EXTERNAL AI APIS",
       "sprite": 6,
       "lang": "Python",
       "since": "2026",
@@ -210,8 +210,8 @@
         "RESEARCH",
         "FAIRNESS"
       ],
-      "desc": "Reproduces a fairness-constraint paper on Adult Census, then asks who paid. The demographic-parity constraint makes equalized odds 3.3x worse, and closes the gap by taking, not lifting.",
-      "foot": "DP 0.161 TO 0.019 - EO 3.3X WORSE",
+      "desc": "Reproduces a fairness-constraint paper on Adult Census, then asks who paid. On Adult the constraint shrinks the approval pool by a fifth; on HMDA lending the same rule grows it.",
+      "foot": "ADULT POOL -20.5%, HMDA +4.3%, SAME RULE",
       "sprite": 14,
       "lang": "Python",
       "since": "2026",
@@ -225,7 +225,7 @@
         "ENGINE"
       ],
       "desc": "A rules engine, bots and a measurement harness for Brass: Birmingham. Search kept losing to the evaluation it searched with, so the bot that ships is the plain heuristic.",
-      "foot": "131.3 VP MIRROR, 146.7 VS GREEDY AT 4P",
+      "foot": "130.0 VP MIRROR, 148.4 VS GREEDY AT 4P",
       "sprite": 15,
       "lang": "Python",
       "since": "2026",
@@ -239,7 +239,7 @@
         "ENGINE"
       ],
       "desc": "A digital clock built inside Conway's Game of Life, running as a Windows wallpaper behind the desktop icons. A Hashlife engine in C steps it 192 generations a second to keep time.",
-      "foot": "192 GEN/S AT 4% OF ONE CORE, NO GPU",
+      "foot": "192 GEN/S, 3% OF ONE CORE, 74 MB, NO GPU",
       "sprite": 16,
       "lang": "C",
       "since": "2026",
@@ -252,7 +252,7 @@
         "PLANTS"
       ],
       "desc": "Tells you when a pot needs water by weighing it, not by a calendar. Fits a drying curve to kitchen-scale readings, robustly enough that one weighing with the saucer still on does not bend it.",
-      "foot": "214 JVM + 13 DEVICE TESTS, SCHEMA V10",
+      "foot": "ONE WET SAUCER MOVES THE FIT UNDER 10%",
       "sprite": 17,
       "lang": "Kotlin",
       "since": "2026",
@@ -283,7 +283,7 @@
   "retired": [],
   "counts": {
     "repos": 17,
-    "verified": 4,
+    "verified": 5,
     "entries": 17,
     "cards": 17,
     "party": 6,
