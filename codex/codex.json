@@ -29,7 +29,8 @@
       "sprite": 1,
       "lang": "C++",
       "since": "2025",
-      "verified": true
+      "verified": true,
+      "checked": "2026-09-22T15:48:40+00:00"
     },
     {
       "no": "No.002",
@@ -57,7 +58,8 @@
       "sprite": 3,
       "lang": "Python",
       "since": "2026",
-      "verified": true
+      "verified": true,
+      "checked": "2026-09-22T15:48:40+00:00"
     },
     {
       "no": "No.004",
@@ -71,7 +73,8 @@
       "sprite": 4,
       "lang": "Python",
       "since": "2026",
-      "verified": true
+      "verified": true,
+      "checked": "2026-09-22T15:48:40+00:00"
     },
     {
       "no": "No.005",
@@ -225,7 +228,7 @@
         "ENGINE"
       ],
       "desc": "A rules engine, bots and a measurement harness for Brass: Birmingham. Search kept losing to the evaluation it searched with, so the bot that ships is the plain heuristic.",
-      "foot": "130.0 VP MIRROR, 148.4 VS GREEDY AT 4P",
+      "foot": "FIVE TUNING GAINS VANISHED ON UNSEEN SEEDS",
       "sprite": 15,
       "lang": "Python",
       "since": "2026",
