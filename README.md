@@ -4,8 +4,6 @@
 
 <img alt="Archive — HelperBoi, Dedupe, Audio, LabEval, Attend, SaleSnipe, Carbon, Fairness, BrassBot, Conway, ThirstTrap" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
 
-<img alt="Activity — 1,659 contributions in the last year, over 65 active days" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/activity.svg">
-
 <details>
 <summary><b>Full entries</b></summary>
 <br>

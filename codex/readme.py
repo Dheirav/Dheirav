@@ -58,17 +58,6 @@ def main():
     arc = ", ".join(labels.get(r, r) for r in arch)
     out.append(f'<img alt="{esc("Archive — " + arc)}" src="{RAW}/archive.svg">\n')
 
-    # activity.py refuses to write a calendar it cannot verify, so a missing
-    # file means the last fetch was rejected. Leave the panel out rather than
-    # linking an image that is not there.
-    act = os.path.join(HERE, "activity.json")
-    if os.path.exists(act):
-        a = json.load(open(act))
-        tot = f"{a['total']:,}" if a.get("total") is not None else "an unknown number of"
-        alt = (f"Activity — {tot} contributions in the last year, "
-               f"over {a['active']} active days")
-        out.append(f'<img alt="{esc(alt)}" src="{RAW}/activity.svg">\n')
-
     out.append("<details>\n<summary><b>Full entries</b></summary>\n<br>\n")
     for e in party:
         n = e["no"].split(".")[1]
