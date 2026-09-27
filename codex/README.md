@@ -10,6 +10,7 @@ The panels on the profile page. Everything here is generated, not hand-drawn.
   an automatic outline pass. Also pixelates `avatar-src.png` for the ID card.
 - `readme.py` — rewrites the profile `README.md` from the same data.
 - `animate.py` — rasterises the entries into `codex.gif`.
+- `activity.py` — fetches the contribution calendar into `activity.json`.
 - `stale.py` — flags cards whose repo has moved since the prose was written.
 
 ```bash
@@ -18,12 +19,13 @@ python3 gen.py       # all SVG panels
 python3 readme.py    # the profile README
 python3 animate.py   # the animated screen
 python3 stale.py     # which cards are worth re-reading
+python3 activity.py  # refresh the contribution calendar
 ```
 
-`.github/workflows/codex.yml` runs all five daily, and on demand via *Actions →
+`.github/workflows/codex.yml` runs all six daily, and on demand via *Actions →
 codex → Run workflow*. It commits only when something actually changed.
 
-`sync.py`, `readme.py` and `stale.py` are stdlib only. `gen.py` and `animate.py` both need
+`sync.py`, `readme.py`, `stale.py` and `activity.py` are stdlib only. `gen.py` and `animate.py` both need
 Pillow — `gen.py` because `sprites.avatar_sprite()` pixelates `avatar-src.png`
 for the ID card, which is easy to miss since nothing at the top of the file
 imports it.
@@ -61,6 +63,33 @@ for good the number retires with it and the sequence keeps the hole, so
 `No.003` always means the same project. `gen.py` deletes the orphaned
 `entry-00N.svg` so a panel describing a now-private repo cannot be fetched by
 raw URL.
+
+## The activity panel
+
+`activity.py` scrapes the public calendar at
+`github.com/users/<owner>/contributions`, which needs no token, so the rule that
+the workflow's built-in token is enough still holds. It writes `activity.json`
+as a start date and one digit a day, which keeps the daily diff to a line, and
+`gen.py` draws the panel from that file. gen.py never reaches the network, so
+every panel here is still rebuildable byte for byte offline.
+
+Scraping is the weak point and it has already bitten once. The markup is
+**row-major** -- every Sunday, then every Monday -- so reading cells in document
+order and laying them out by index draws a scrambled year that looks completely
+plausible. Position now comes from the dates. `activity.py` asserts the calendar
+starts on a Sunday, spans about a year with no holes, and carries no level
+outside 0 to 4, and **aborts without writing** if any of that fails, which
+leaves yesterday's panel in place. A stale picture is better than a confident
+wrong one, and the workflow step is `continue-on-error` for the same reason.
+
+Unlike everything else here the calendar moves every day, because the window
+slides whether or not you wrote anything. That would file a daily commit saying
+"sync with public repos", which would not be true, so the commit step names the
+change after what actually moved. To read the log without it:
+
+```bash
+git log --invert-grep --grep='activity panel'
+```
 
 ## When a card goes stale
 

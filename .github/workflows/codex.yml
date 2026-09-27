@@ -44,6 +44,15 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 sync.py
 
+      - name: Refresh the contribution calendar
+        # Scraped from public HTML, so no PAT. activity.py aborts without
+        # writing if the markup stops matching what the panel expects, and this
+        # step does not fail the run: a stale calendar is fine, the rest of the
+        # job is not about it.
+        continue-on-error: true
+        working-directory: codex
+        run: python3 activity.py
+
       - name: Regenerate panels and README
         working-directory: codex
         run: |
@@ -82,6 +91,15 @@ jobs:
           fi
           git config user.name  "Dheirav"
           git config user.email "dheirav2005@gmail.com"
+          # The calendar moves every day whether or not anything else did, so it
+          # would otherwise file a daily "sync with public repos" that is not
+          # true. Name the commit after what actually changed, and the log stays
+          # filterable: git log --invert-grep --grep='activity panel'
+          if [ -z "$(git status --porcelain | grep -v 'codex/activity')" ]; then
+            msg="codex: refresh the activity panel"
+          else
+            msg="codex: sync with public repos"
+          fi
           git add -A
-          git commit -m "codex: sync with public repos"
+          git commit -m "$msg"
           git push

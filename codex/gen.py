@@ -137,6 +137,10 @@ TYPES = {
 # A tag with no colour yet still has to draw, or writing one card breaks the
 # whole build. Slate is deliberately dull so an unstyled tag looks unfinished.
 TYPE_FALLBACK = '#6B7280'
+# The activity ramp is sequential, so it is one hue getting lighter, never a set
+# of categorical colours. Step 0 is the tile itself: a day with nothing on it
+# should read as empty, not as the bottom of a scale.
+ACTIVITY_RAMP = ['#19212E', '#1F4A38', '#2C6B4C', '#3F8F63', '#62BE87']
 DARKTEXT = set()
 
 TH = {
@@ -350,6 +354,73 @@ def small_sprite(sp, ox, oy, u):
     order = [k for k in grp if k != 'K'] + (['K'] if 'K' in grp else [])
     return "".join(f'<path d="{path(grp[c], u)}" fill="{pal[c]}"/>' for c in order)
 
+MONTHS = ("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+          "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
+
+
+def activity(data, theme):
+    """A year of contributions, one 3px cell a day, weeks left to right.
+
+    A cell's place comes from its date, never from its position in the file the
+    scraper produced: that file is row-major and reading it in order draws a
+    scrambled year that still looks plausible. activity.py asserts the shape
+    before writing, and this asserts it again before drawing.
+    """
+    import datetime
+    t = TH[theme]
+    start = datetime.date.fromisoformat(data["start"])
+    levels = data["levels"]
+    assert start.weekday() == 6, "the calendar must start on a Sunday"
+    P, C = 4, 3                       # 4px pitch, 3px cell, so 1px of tile shows
+    weeks = (len(levels) + 6) // 7
+    assert weeks <= 53, f"{weeks} weeks will not fit the panel"
+
+    bx, bw = 8, W - 16
+    ctop = 8 + 11 + 9                 # titlebar, then the month strip
+    sh = 14 + 9 + 7 * P + 5 + 8 + 4
+    H = 5 + sh + 5
+    o = []
+    A = o.append
+    tot = f"{data['total']:,}" if data.get("total") is not None else "?"
+    A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W*U}" height="{H*U}" '
+      f'viewBox="0 0 {W*U} {H*U}" role="img" aria-label="Activity: {tot} '
+      f'contributions in the last year, over {data["active"]} active days.">')
+    frame(H, t, o)
+    screen(5, 5, W - 10, sh, t, o)
+    titlebar(bx, 8, bw, "ACTIVITY", t, o, right=f"{tot} a year")
+
+    gx = bx + 3
+    seen, lastx = set(), -99
+    for i, lvl in enumerate(levels):
+        d = start + datetime.timedelta(days=i)
+        x, y = gx + (i // 7) * P, ctop + (i % 7) * P
+        A(f'<rect x="{x*U}" y="{y*U}" width="{C*U}" height="{C*U}" '
+          f'fill="{ACTIVITY_RAMP[int(lvl)]}"/>')
+        # A month label is 17px wide and months fall about 17px apart at this
+        # pitch, so labelling every one smears them together. Label where there
+        # is room, which comes out as roughly every second month.
+        key = (d.year, d.month)
+        if key not in seen and d.day <= 7:
+            seen.add(key)
+            if x - lastx >= 21 and x + 17 <= bx + bw - 3:
+                lastx = x
+                A(f'<path d="{path(px(MONTHS[d.month-1], x, ctop-9), U)}" '
+                  f'fill="{t["dim"]}"/>')
+
+    ly = ctop + 7 * P + 4
+    A(f'<path d="{path(px(f"{data['active']} ACTIVE DAYS", gx, ly), U)}" '
+      f'fill="{t["dim"]}"/>')
+    more = bx + bw - 3 - 4 * 6
+    ramp = more - 6 - len(ACTIVITY_RAMP) * P
+    A(f'<path d="{path(px("LESS", ramp - 6 - 4*6, ly), U)}" fill="{t["dim"]}"/>')
+    for i, c in enumerate(ACTIVITY_RAMP):
+        A(f'<rect x="{(ramp+i*P)*U}" y="{(ly+2)*U}" width="{C*U}" '
+          f'height="{C*U}" fill="{c}"/>')
+    A(f'<path d="{path(px("MORE", more, ly), U)}" fill="{t["dim"]}"/>')
+    A('</svg>')
+    return "".join(o)
+
+
 def listscreen(theme):
     t = TH[theme]
     bx, by, bw = 8, 8, W - 16
@@ -422,6 +493,12 @@ th = "dark"
 open(os.path.join(here, "trainer.svg"), "w").write(trainer(th))
 open(os.path.join(here, "archive.svg"), "w").write(archive(BOX, th))
 open(os.path.join(here, "index.svg"), "w").write(listscreen(th))
+# activity.py owns this file and refuses to write a shape it does not recognise,
+# so its absence means the last fetch was rejected. Keep the panel that is there.
+ACT = os.path.join(here, "activity.json")
+if os.path.exists(ACT):
+    open(os.path.join(here, "activity.svg"), "w").write(
+        activity(json.load(open(ACT)), th))
 live = set()
 for e in CARDS:
     n = e["no"].split('.')[1]
