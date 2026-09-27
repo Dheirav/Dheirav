@@ -44,6 +44,17 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 sync.py
 
+      - name: Measure what the repos are written in
+        # One call a repo. It writes nothing unless every repo answered, so a
+        # half-counted total can never reach the panel, and the step does not
+        # fail the run: a stale breakdown is fine, the rest of the job is not
+        # about it.
+        continue-on-error: true
+        working-directory: codex
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 source.py
+
       - name: Regenerate panels and README
         working-directory: codex
         run: |

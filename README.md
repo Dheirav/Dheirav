@@ -4,6 +4,8 @@
 
 <img alt="Archive — HelperBoi, Dedupe, Audio, LabEval, Attend, SaleSnipe, Carbon, Fairness, BrassBot, Conway, ThirstTrap" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
 
+<img alt="Source — Python 50%, Kotlin 15%, C++ 11%, JavaScript 9%, TeX 9%, HTML 2%, C 2%, Other 2%; 11 MB across 16 languages" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/source.svg">
+
 <details>
 <summary><b>Full entries</b></summary>
 <br>

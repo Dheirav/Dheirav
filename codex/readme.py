@@ -58,6 +58,15 @@ def main():
     arc = ", ".join(labels.get(r, r) for r in arch)
     out.append(f'<img alt="{esc("Archive — " + arc)}" src="{RAW}/archive.svg">\n')
 
+    # source.py refuses to write a partial count, so a missing file means the
+    # last fetch was rejected. Leave the panel out rather than link a dead image.
+    src = os.path.join(HERE, "source.json")
+    if os.path.exists(src):
+        s = json.load(open(src))
+        alt = ("Source — " + ", ".join(f"{n} {p}%" for n, p in s["rows"])
+               + f"; {s['total_mb']} MB across {s['languages']} languages")
+        out.append(f'<img alt="{esc(alt)}" src="{RAW}/source.svg">\n')
+
     out.append("<details>\n<summary><b>Full entries</b></summary>\n<br>\n")
     for e in party:
         n = e["no"].split(".")[1]

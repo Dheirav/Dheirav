@@ -137,6 +137,11 @@ TYPES = {
 # A tag with no colour yet still has to draw, or writing one card breaks the
 # whole build. Slate is deliberately dull so an unstyled tag looks unfinished.
 TYPE_FALLBACK = '#6B7280'
+# One hue for every bar. Each row carries its own name and number, so colour
+# here is not identity and a categorical palette would only be decoration: the
+# seven-hue set tried first failed its own validator, two of them 5.8 apart
+# where 15 is the floor for telling a pair apart with full colour vision.
+SOURCE_BAR = '#4F7BD6'
 DARKTEXT = set()
 
 TH = {
@@ -350,6 +355,41 @@ def small_sprite(sp, ox, oy, u):
     order = [k for k in grp if k != 'K'] + (['K'] if 'K' in grp else [])
     return "".join(f'<path d="{path(grp[c], u)}" fill="{pal[c]}"/>' for c in order)
 
+def source(data, theme):
+    """What the repos are written in, one bar a language, widest first."""
+    t = TH[theme]
+    rows = data["rows"]
+    bx, bw = 8, W - 16
+    ctop = 8 + 11 + 5
+    RH = 11
+    sh = 14 + len(rows) * RH + 6
+    H = 5 + sh + 5
+    o = []
+    A = o.append
+    alt = ", ".join(f"{n} {p}%" for n, p in rows)
+    A(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W*U}" height="{H*U}" '
+      f'viewBox="0 0 {W*U} {H*U}" role="img" aria-label="Source: {alt}. '
+      f'{data["total_mb"]} MB across {data["languages"]} languages.">')
+    frame(H, t, o)
+    screen(5, 5, W - 10, sh, t, o)
+    titlebar(bx, 8, bw, "SOURCE", t, o, right=f"{data['total_mb']} MB")
+    BX0, BW = bx + 74, 132
+    for i, (name, pct) in enumerate(rows):
+        y = ctop + i * RH
+        A(f'<path d="{path(px(name[:11], bx+3, y+1), U)}" fill="{t["ink"]}"/>')
+        A(f'<rect x="{BX0*U}" y="{(y+1)*U}" width="{BW*U}" height="{7*U}" '
+          f'fill="{t["tile"]}"/>')
+        # A language that earned a row always gets a visible bar, even when its
+        # share rounds to a width below one pixel.
+        w = max(1, round(BW * pct / 100))
+        A(f'<rect x="{BX0*U}" y="{(y+1)*U}" width="{w*U}" height="{7*U}" '
+          f'fill="{SOURCE_BAR if name != "Other" else t["dim"]}"/>')
+        s = f"{pct}%"
+        A(f'<path d="{path(px(s, bx+bw-3-len(s)*6, y+1), U)}" fill="{t["dim"]}"/>')
+    A('</svg>')
+    return "".join(o)
+
+
 def listscreen(theme):
     t = TH[theme]
     bx, by, bw = 8, 8, W - 16
@@ -422,6 +462,12 @@ th = "dark"
 open(os.path.join(here, "trainer.svg"), "w").write(trainer(th))
 open(os.path.join(here, "archive.svg"), "w").write(archive(BOX, th))
 open(os.path.join(here, "index.svg"), "w").write(listscreen(th))
+# source.py refuses to write a partial count, so a missing file means the last
+# fetch was rejected. Keep whatever panel is already there.
+SRC = os.path.join(here, "source.json")
+if os.path.exists(SRC):
+    open(os.path.join(here, "source.svg"), "w").write(
+        source(json.load(open(SRC)), th))
 live = set()
 for e in CARDS:
     n = e["no"].split('.')[1]

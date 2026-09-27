@@ -10,6 +10,7 @@ The panels on the profile page. Everything here is generated, not hand-drawn.
   an automatic outline pass. Also pixelates `avatar-src.png` for the ID card.
 - `readme.py` — rewrites the profile `README.md` from the same data.
 - `animate.py` — rasterises the entries into `codex.gif`.
+- `source.py` — measures what the repos are written in, into `source.json`.
 - `stale.py` — flags cards whose repo has moved since the prose was written.
 
 ```bash
@@ -18,12 +19,13 @@ python3 gen.py       # all SVG panels
 python3 readme.py    # the profile README
 python3 animate.py   # the animated screen
 python3 stale.py     # which cards are worth re-reading
+python3 source.py    # what the repos are written in
 ```
 
-`.github/workflows/codex.yml` runs all five daily, and on demand via *Actions →
+`.github/workflows/codex.yml` runs all six daily, and on demand via *Actions →
 codex → Run workflow*. It commits only when something actually changed.
 
-`sync.py`, `readme.py` and `stale.py` are stdlib only. `gen.py` and `animate.py` both need
+`sync.py`, `readme.py`, `stale.py` and `source.py` are stdlib only. `gen.py` and `animate.py` both need
 Pillow — `gen.py` because `sprites.avatar_sprite()` pixelates `avatar-src.png`
 for the ID card, which is easy to miss since nothing at the top of the file
 imports it.
@@ -61,6 +63,36 @@ for good the number retires with it and the sequence keeps the hole, so
 `No.003` always means the same project. `gen.py` deletes the orphaned
 `entry-00N.svg` so a panel describing a now-private repo cannot be fetched by
 raw URL.
+
+## The source panel
+
+`source.py` asks the API what each repo is written in, one call a repo, and
+writes `source.json`. `gen.py` draws the bars from that file, so it still
+reaches no network and every panel is rebuildable offline.
+
+Two decisions in it are worth keeping:
+
+**It stores only what the panel draws, already rounded.** Byte counts move on
+every push, so storing them raw would file a commit for a bar nobody could see
+change. The resolution of the stored number is what sets how often this
+commits, which is the same reason a card's footer should not quote a figure
+that moves.
+
+**A language needs to round to 2 percent to earn a row.** Of the 16 languages
+GitHub detects here, seven are Makefile, CSS, PowerShell, Dockerfile, CMake,
+Batchfile and Mako, together a quarter of one percent. Counting those as
+languages you build in would be padding a number. Everything under the floor
+folds into `Other`, which is computed as the remainder so the column totals 100
+even though each row was rounded on its own.
+
+The bars are one hue because each row already carries its name and its number,
+so colour would be decoration. A seven-hue set from the tag palette was tried
+first and failed validation, two of its colours 5.8 apart where 15 is the floor
+for a pair being distinguishable with full colour vision.
+
+`source.py` writes nothing unless every repo answered, so a half-counted total
+cannot reach the panel, and the workflow step is `continue-on-error`: a stale
+breakdown is better than a wrong one.
 
 ## When a card goes stale
 
