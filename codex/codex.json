@@ -14,7 +14,8 @@
     "SaleSnipe": "SaleSnipe",
     "BrassBot": "BrassBot",
     "ConwayClock": "Conway",
-    "ThirstTrap": "ThirstTrap"
+    "ThirstTrap": "ThirstTrap",
+    "convertkit": "Convertkit"
   },
   "dex": [
     {
@@ -261,6 +262,17 @@
       "since": "2026",
       "verified": false,
       "checked": "2026-09-27T13:51:06+00:00"
+    },
+    {
+      "no": "No.018",
+      "repo": "convertkit",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 0,
+      "lang": "Python",
+      "since": "2026",
+      "verified": false
     }
   ],
   "party": [
@@ -282,15 +294,16 @@
     "who-pays-for-fairness",
     "BrassBot",
     "ConwayClock",
-    "ThirstTrap"
+    "ThirstTrap",
+    "convertkit"
   ],
   "retired": [],
   "counts": {
-    "repos": 17,
+    "repos": 18,
     "verified": 5,
-    "entries": 17,
+    "entries": 18,
     "cards": 17,
     "party": 6,
-    "archive": 11
+    "archive": 12
   }
 }

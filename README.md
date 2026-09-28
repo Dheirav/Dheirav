@@ -1,10 +1,10 @@
-<img alt="ID card — Dheirav Prakash, Chennai India, 17 repos, 5 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer.svg">
+<img alt="ID card — Dheirav Prakash, Chennai India, 18 repos, 5 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer.svg">
 
 <img alt="Codex index — 001 ChessBot (Search/Engine, C++, since 2025); 002 UkuleleTabsMaker (Vision/Music, Python, since 2026); 003 NashForge (Solver/Research, Python, since 2026); 004 DeepFakeDetector (Forensics/Vision, Python, since 2026); 005 Luna (Offline/Mobile, Kotlin, since 2026); 006 NewsLetterScrapper (Pipeline/LLM, Python, since 2026)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index.svg">
 
-<img alt="Archive — HelperBoi, Dedupe, Audio, LabEval, Attend, SaleSnipe, Carbon, Fairness, BrassBot, Conway, ThirstTrap" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
+<img alt="Archive — HelperBoi, Dedupe, Audio, LabEval, Attend, SaleSnipe, Carbon, Fairness, BrassBot, Conway, ThirstTrap, Convertkit" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
 
-<img alt="Source — Python 50%, Kotlin 15%, C++ 11%, JavaScript 9%, TeX 9%, HTML 2%, C 2%, Other 2%; 11 MB across 16 languages" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/source.svg">
+<img alt="Source — Python 51%, Kotlin 14%, C++ 11%, JavaScript 9%, TeX 9%, HTML 2%, Other 4%; 11 MB across 16 languages" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/source.svg">
 
 <details>
 <summary><b>Full entries</b></summary>
@@ -43,7 +43,8 @@
 <a href="https://github.com/Dheirav/who-pays-for-fairness">who-pays-for-fairness</a> ·
 <a href="https://github.com/Dheirav/BrassBot">BrassBot</a> ·
 <a href="https://github.com/Dheirav/ConwayClock">ConwayClock</a> ·
-<a href="https://github.com/Dheirav/ThirstTrap">ThirstTrap</a>
+<a href="https://github.com/Dheirav/ThirstTrap">ThirstTrap</a> ·
+<a href="https://github.com/Dheirav/convertkit">convertkit</a>
 </sub>
 
 ---
