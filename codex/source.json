@@ -1,10 +1,10 @@
 {
-  "total_mb": 12,
+  "total_mb": 13,
   "languages": 16,
   "rows": [
     [
       "Python",
-      50
+      52
     ],
     [
       "Kotlin",
@@ -12,7 +12,7 @@
     ],
     [
       "C++",
-      10
+      9
     ],
     [
       "JavaScript",
@@ -28,7 +28,7 @@
     ],
     [
       "Other",
-      5
+      4
     ]
   ]
 }
