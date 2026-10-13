@@ -15,7 +15,8 @@
     "BrassBot": "BrassBot",
     "ConwayClock": "Conway",
     "ThirstTrap": "ThirstTrap",
-    "convertkit": "Convertkit"
+    "convertkit": "Convertkit",
+    "NashForge-core": "NashForgeC"
   },
   "dex": [
     {
@@ -46,21 +47,6 @@
       "lang": "Python",
       "since": "2026",
       "verified": true
-    },
-    {
-      "no": "No.003",
-      "repo": "NashForge",
-      "tags": [
-        "SOLVER",
-        "RESEARCH"
-      ],
-      "desc": "An MCCFR solver for heads-up no-limit Hold'em with a C++ core. Its bot won Chipzen season 6, 4-1 as top seed and 3-0 in the playoffs. An earlier pipeline's results were withdrawn.",
-      "foot": "CHIPZEN SEASON 6 CHAMPION - 4-1 RR, 3-0 KO",
-      "sprite": 3,
-      "lang": "Python",
-      "since": "2026",
-      "verified": true,
-      "checked": "2026-09-27T13:51:06+00:00"
     },
     {
       "no": "No.004",
@@ -273,12 +259,22 @@
       "lang": "Python",
       "since": "2026",
       "verified": false
+    },
+    {
+      "no": "No.019",
+      "repo": "NashForge-core",
+      "tags": [],
+      "desc": "",
+      "foot": "",
+      "sprite": 0,
+      "lang": "Python",
+      "since": "2026",
+      "verified": false
     }
   ],
   "party": [
     "ChessBot",
     "UkuleleTabsMaker",
-    "NashForge",
     "DeepFakeDetector",
     "Luna",
     "NewsLetterScrapper"
@@ -295,15 +291,18 @@
     "BrassBot",
     "ConwayClock",
     "ThirstTrap",
-    "convertkit"
+    "convertkit",
+    "NashForge-core"
   ],
-  "retired": [],
+  "retired": [
+    "NashForge"
+  ],
   "counts": {
     "repos": 18,
-    "verified": 5,
+    "verified": 4,
     "entries": 18,
-    "cards": 17,
-    "party": 6,
-    "archive": 12
+    "cards": 16,
+    "party": 5,
+    "archive": 13
   }
 }

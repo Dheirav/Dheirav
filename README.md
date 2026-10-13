@@ -1,10 +1,10 @@
-<img alt="ID card — Dheirav Prakash, Chennai India, 18 repos, 5 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer.svg">
+<img alt="ID card — Dheirav Prakash, Chennai India, 18 repos, 4 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer.svg">
 
-<img alt="Codex index — 001 ChessBot (Search/Engine, C++, since 2025); 002 UkuleleTabsMaker (Vision/Music, Python, since 2026); 003 NashForge (Solver/Research, Python, since 2026); 004 DeepFakeDetector (Forensics/Vision, Python, since 2026); 005 Luna (Offline/Mobile, Kotlin, since 2026); 006 NewsLetterScrapper (Pipeline/LLM, Python, since 2026)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index.svg">
+<img alt="Codex index — 001 ChessBot (Search/Engine, C++, since 2025); 002 UkuleleTabsMaker (Vision/Music, Python, since 2026); 004 DeepFakeDetector (Forensics/Vision, Python, since 2026); 005 Luna (Offline/Mobile, Kotlin, since 2026); 006 NewsLetterScrapper (Pipeline/LLM, Python, since 2026)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index.svg">
 
-<img alt="Archive — HelperBoi, Dedupe, Audio, LabEval, Attend, SaleSnipe, Carbon, Fairness, BrassBot, Conway, ThirstTrap, Convertkit" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
+<img alt="Archive — HelperBoi, Dedupe, Audio, LabEval, Attend, SaleSnipe, Carbon, Fairness, BrassBot, Conway, ThirstTrap, Convertkit, NashForgeC" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
 
-<img alt="Source — Python 51%, Kotlin 18%, C++ 9%, JavaScript 8%, TeX 7%, HTML 2%, Shell 2%, Other 3%; 13 MB across 16 languages" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/source.svg">
+<img alt="Source — Python 47%, Kotlin 19%, C++ 10%, JavaScript 9%, TeX 8%, HTML 2%, Other 5%; 12 MB across 16 languages" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/source.svg">
 
 <details>
 <summary><b>Full entries</b></summary>
@@ -13,8 +13,6 @@
 <a href="https://github.com/Dheirav/ChessBot"><img alt="No.001 ChessBot — Search/Engine, C++, since 2025. A UCI chess engine written from scratch. Alpha-beta, lock-free transposition table, Lazy SMP, null-move and late-move pruning. Heuristics are gated on self-play; losers stay logged. LICHESS 2200+ RAPID - VERIFIED" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-001.svg"></a>
 
 <a href="https://github.com/Dheirav/UkuleleTabsMaker"><img alt="No.002 UkuleleTabsMaker — Vision/Music, Python, since 2026. Reads ukulele tabs off a YouTube video and prints a playable sheet. Fret numbers come from vision on the notation; timing from the player's highlight, or the soundtrack if there is none. 98.7% RECALL / 100% PRECISION, 316 NOTES" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-002.svg"></a>
-
-<a href="https://github.com/Dheirav/NashForge"><img alt="No.003 NashForge — Solver/Research, Python, since 2026. An MCCFR solver for heads-up no-limit Hold'em with a C++ core. Its bot won Chipzen season 6, 4-1 as top seed and 3-0 in the playoffs. An earlier pipeline's results were withdrawn. CHIPZEN SEASON 6 CHAMPION - 4-1 RR, 3-0 KO" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-003.svg"></a>
 
 <a href="https://github.com/Dheirav/DeepFakeDetector"><img alt="No.004 DeepFakeDetector — Forensics/Vision, Python, since 2026. Sorts images into real, AI-generated or AI-edited. The first model's 89% measured which dataset a file came from. Rebuilt on shortcut-free data: 80.4% in-domain, 72.3% unseen. 80.4% IN-DOMAIN / 72.3% HELD-OUT RECALL" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/entry-004.svg"></a>
 
@@ -29,7 +27,6 @@
 <sub>
 <a href="https://github.com/Dheirav/ChessBot">ChessBot</a> ·
 <a href="https://github.com/Dheirav/UkuleleTabsMaker">UkuleleTabsMaker</a> ·
-<a href="https://github.com/Dheirav/NashForge">NashForge</a> ·
 <a href="https://github.com/Dheirav/DeepFakeDetector">DeepFakeDetector</a> ·
 <a href="https://github.com/Dheirav/Luna">Luna</a> ·
 <a href="https://github.com/Dheirav/NewsLetterScrapper">NewsLetterScrapper</a> ·
@@ -44,7 +41,8 @@
 <a href="https://github.com/Dheirav/BrassBot">BrassBot</a> ·
 <a href="https://github.com/Dheirav/ConwayClock">ConwayClock</a> ·
 <a href="https://github.com/Dheirav/ThirstTrap">ThirstTrap</a> ·
-<a href="https://github.com/Dheirav/convertkit">convertkit</a>
+<a href="https://github.com/Dheirav/convertkit">convertkit</a> ·
+<a href="https://github.com/Dheirav/NashForge-core">NashForge-core</a>
 </sub>
 
 ---
