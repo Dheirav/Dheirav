@@ -1,10 +1,10 @@
-<img alt="ID card — Dheirav Prakash, Chennai India, 18 repos, 4 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer.svg">
+<img alt="ID card — Dheirav Prakash, Chennai India, 19 repos, 4 verified results" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/trainer.svg">
 
 <img alt="Codex index — 001 ChessBot (Search/Engine, C++, since 2025); 002 UkuleleTabsMaker (Vision/Music, Python, since 2026); 004 DeepFakeDetector (Forensics/Vision, Python, since 2026); 005 Luna (Offline/Mobile, Kotlin, since 2026); 006 NewsLetterScrapper (Pipeline/LLM, Python, since 2026)" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/index.svg">
 
-<img alt="Archive — HelperBoi, Dedupe, Audio, LabEval, Attend, SaleSnipe, Carbon, Fairness, BrassBot, Conway, ThirstTrap, Convertkit, NashForgeC" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
+<img alt="Archive — HelperBoi, Dedupe, Audio, LabEval, Attend, SaleSnipe, Carbon, Fairness, BrassBot, Conway, ThirstTrap, Convertkit, NashForgeC, HybridImag" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/archive.svg">
 
-<img alt="Source — Python 47%, Kotlin 20%, C++ 10%, JavaScript 9%, TeX 8%, HTML 2%, Other 4%; 12 MB across 16 languages" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/source.svg">
+<img alt="Source — Python 48%, Kotlin 19%, C++ 10%, JavaScript 9%, TeX 8%, HTML 2%, Other 4%; 12 MB across 16 languages" src="https://raw.githubusercontent.com/Dheirav/Dheirav/main/codex/source.svg">
 
 <details>
 <summary><b>Full entries</b></summary>
@@ -42,7 +42,8 @@
 <a href="https://github.com/Dheirav/ConwayClock">ConwayClock</a> ·
 <a href="https://github.com/Dheirav/ThirstTrap">ThirstTrap</a> ·
 <a href="https://github.com/Dheirav/convertkit">convertkit</a> ·
-<a href="https://github.com/Dheirav/NashForge-core">NashForge-core</a>
+<a href="https://github.com/Dheirav/NashForge-core">NashForge-core</a> ·
+<a href="https://github.com/Dheirav/hybrid-image-forensics-cfr">hybrid-image-forensics-cfr</a>
 </sub>
 
 ---
