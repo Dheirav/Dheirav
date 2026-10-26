@@ -16,8 +16,7 @@
     "ConwayClock": "Conway",
     "ThirstTrap": "ThirstTrap",
     "convertkit": "Convertkit",
-    "NashForge-core": "NashForgeC",
-    "hybrid-image-forensics-cfr": "HybridImag"
+    "NashForge-core": "NashForgeC"
   },
   "dex": [
     {
@@ -271,17 +270,6 @@
       "lang": "Python",
       "since": "2026",
       "verified": false
-    },
-    {
-      "no": "No.020",
-      "repo": "hybrid-image-forensics-cfr",
-      "tags": [],
-      "desc": "",
-      "foot": "",
-      "sprite": 0,
-      "lang": "Python",
-      "since": "2026",
-      "verified": false
     }
   ],
   "party": [
@@ -304,18 +292,18 @@
     "ConwayClock",
     "ThirstTrap",
     "convertkit",
-    "NashForge-core",
-    "hybrid-image-forensics-cfr"
+    "NashForge-core"
   ],
   "retired": [
-    "NashForge"
+    "NashForge",
+    "hybrid-image-forensics-cfr"
   ],
   "counts": {
-    "repos": 19,
+    "repos": 18,
     "verified": 4,
-    "entries": 19,
+    "entries": 18,
     "cards": 16,
     "party": 5,
-    "archive": 14
+    "archive": 13
   }
 }
